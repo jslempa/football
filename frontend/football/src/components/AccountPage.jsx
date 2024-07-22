@@ -1,7 +1,12 @@
+import Nav from './Nav'
+
 const AccountPage = () => {
 
     return (
-        <h1>Account</h1>
+        <div className='account'>
+            <h1>Account</h1>
+            <Nav />
+        </div>
     )
 }
 

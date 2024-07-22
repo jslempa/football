@@ -1,7 +1,12 @@
+import Nav from './Nav'
+
 const PortfolioPage = () => {
 
     return (
-        <h1>Portfolio</h1>
+        <div className='portfolio'>
+            <h1>Portfolio</h1>
+            <Nav />
+        </div>
     )
 }
 

@@ -1,7 +1,12 @@
+import Nav from './Nav'
+
 const HomePage = () => {
 
     return (
-        <div>Home</div>
+        <div className='home'>
+            <h1>Home</h1>        
+            <Nav />
+        </div>
     )
 }
 

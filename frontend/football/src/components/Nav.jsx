@@ -1,7 +1,14 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
+
 const Nav = () => {
 
     return (
-        <h1>Nav</h1>
+        <nav className='nav'>
+            <Link to='/portfolio'>Portfolio</Link>
+            <Link to='/'>Home</Link>
+            <Link to='/account'>Account</Link>
+        </nav>
     )
 }
 
