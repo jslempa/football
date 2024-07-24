@@ -10,3 +10,4 @@ installed
 - nodemon --save-dev
 - morgan
 - body-parser
+- cors
