@@ -1,0 +1,1 @@
+export const BASE_URL = 'tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com'

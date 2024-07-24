@@ -2,4 +2,6 @@
 
 npm i react-router-dom
 
-installed browser router
+installed 
+- browser router
+- axios
