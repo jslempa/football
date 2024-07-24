@@ -12,25 +12,44 @@ function App() {
 
   const [players, setPlayers] = useState([])
 
+  // const test = async () => {
+  //   try {
+  //     const res = await axios({
+  //       method: 'GET',
+  //       url: `${BASE_URL}/getNFLPlayerList`,
+  //       headers: {
+  //         'x-rapidapi-key': '426ae3acd0msh3d3c5c1d0c82ea5p1b3459jsn490eccaf5ec5',
+  //         'x-rapidapi-host': 'tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com'
+  //       },
+    
+  //     }
+  //   )
+  //     console.log(res.data.body)
+  //     // let playerData = res.data.body
+  //     // let tightEnds = playerData.filter(player => player.pos === 'TE')
+  //     // console.log(tightEnds)
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  // }
+
   const test = async () => {
     try {
-      const res = await axios({
-        method: 'GET',
-        url: `${BASE_URL}/getNFLPlayerList`,
+      const res = await axios.get(`${BASE_URL}/getNFLPlayerList`, {
         headers: {
           'x-rapidapi-key': '426ae3acd0msh3d3c5c1d0c82ea5p1b3459jsn490eccaf5ec5',
           'x-rapidapi-host': 'tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com'
-        }
+        },
+        // transformResponse: 
       }
     )
       console.log(res.data.body)
-      let playerData = res.data.body
-      let tightEnds = playerData.filter(player => player.pos === 'TE')
-      console.log(tightEnds)
     } catch (error) {
       console.error(error)
     }
   }
+
+
 
 
   return (
