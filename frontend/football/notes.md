@@ -11,3 +11,9 @@ installed
 - morgan
 - body-parser
 - cors
+
+
+
+if I have a create error, it could be because I deleted await
+const comment = await new Comment(req.body)
+const comment = new Comment(req.body)
