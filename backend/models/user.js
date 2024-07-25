@@ -8,7 +8,7 @@ const User = new Schema(
         email: {type: String, required: true, unique: true},
         image: {type: String, required: false},
         isLoggedIn: {type: Boolean, required: true},
-        balance: {type: Number, min: .01, required: true}
+        balance: {type: Number, min: 0, default: 0, required: true}
     },
     {timestamps: true}
 )

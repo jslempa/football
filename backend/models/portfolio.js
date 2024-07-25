@@ -5,8 +5,8 @@ const Portfolio = new Schema(
     {
         user: {type: Schema.Types.ObjectId, ref: 'User', required: true},
         players: [{
-            player: {type: Schema.Types.ObjectId, ref: 'Player', required: true},
-            numShares: {type: Number, min: 1, required: true}
+            player: {type: Schema.Types.ObjectId, ref: 'Player', required: false},
+            numShares: {type: Number, min: 1, required: false}
         }],
         value: {type: Number, min: 0, required: true}
     },
