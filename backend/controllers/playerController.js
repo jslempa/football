@@ -9,6 +9,19 @@ const getAllPlayers = async (req, res) => {
     }
 }
 
+const getPlayerByEspnID = async (req, res) => {
+    try {
+        const { espnID } = req.params
+        const player = await Player.findOne({espnID: espnID})
+        if (player) {
+            return res.json(player)
+        }
+        return res.status(404).send('Player not found')
+    } catch (error) {
+        return res.status(500).send(error.message)
+    }
+}
+
 const getPlayerById = async (req, res) => {
     try {
         const { id } = req.params
@@ -36,8 +49,9 @@ const createPlayer = async (req, res) => {
 
 const updatePlayer = async (req, res) => {
     try {
-        let { id } = req.params
-        let player = await Player.findByIdAndUpdate(id, req.body, {new: true})
+        let { espnID } = req.params
+        console.log(req.body)
+        let player = await Player.findOneAndUpdate({espnID}, req.body, {new: true})
         if (player) {
             return res.status(200).json(player)
         }
@@ -62,6 +76,7 @@ const deletePlayer = async (req, res) => {
 
 module.exports = {
     getAllPlayers,
+    getPlayerByEspnID,
     getPlayerById,
     createPlayer,
     updatePlayer,

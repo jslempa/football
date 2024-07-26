@@ -11,39 +11,22 @@ import AccountPage from './components/AccountPage'
 function App() {
 
   const [players, setPlayers] = useState([])
+  const [rookies, setRookies] = useState([])
 
-  // const test = async () => {
-  //   try {
-  //     const res = await axios({
-  //       method: 'GET',
-  //       url: `${BASE_URL}/getNFLPlayerList`,
-  //       headers: {
-  //         'x-rapidapi-key': '426ae3acd0msh3d3c5c1d0c82ea5p1b3459jsn490eccaf5ec5',
-  //         'x-rapidapi-host': 'tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com'
-  //       },
-    
-  //     }
-  //   )
-  //     console.log(res.data.body)
-  //     // let playerData = res.data.body
-  //     // let tightEnds = playerData.filter(player => player.pos === 'TE')
-  //     // console.log(tightEnds)
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // }
 
-  const test = async () => {
+  const testRookies = async () => {
     try {
       const res = await axios.get(`${BASE_URL}/getNFLPlayerList`, {
         headers: {
           'x-rapidapi-key': '426ae3acd0msh3d3c5c1d0c82ea5p1b3459jsn490eccaf5ec5',
           'x-rapidapi-host': 'tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com'
-        },
-        // transformResponse: 
+        }, 
       }
     )
       console.log(res.data.body)
+      let playerData = res.data.body
+      let rookiePlayerData = playerData.filter(player => player.exp === 'R' && (player.pos === 'QB' || player.pos === 'RB' || player.pos === 'WR' || player.pos === 'TE'))
+      setRookies(rookiePlayerData)
     } catch (error) {
       console.error(error)
     }
@@ -51,12 +34,70 @@ function App() {
 
 
 
+  // const setRookies = async () => {
+  //   try {
+  //     let rookies = players.filter(player => player.exp === 'R');
+  
+  //     // Create an array of promises
+  //     const promises = rookies.map(rookie => 
+  //       axios.put(`http://localhost:3001/players/${rookie.espnID}`, {
+  //         isRookie: true
+  //       })
+  //     );
+  
+  //     // Await all promises
+  //     await Promise.all(promises);
+  
+  //     console.log('Rookies set');
+  //   } catch (error) {
+  //     console.error('Error setting rookies:', error);
+  //   }
+  // };
+  const test = () => {
+    console.log('test')
+  }
+
+  const logRookies = () => {
+    console.log(rookies)
+  }
+
+  const makeRookies = async () => {
+    await rookies.forEach(rookie => {
+      const response = axios.put(`http://localhost:3001/players/${rookie.espnID}`, {
+        isRookie: true
+      })
+    })
+    console.log('Rookies set')  
+  }
+
+  // const makeRookies = async () => {
+  //   try {
+  //     const promises = rookies.map(rookie => {
+  //       return axios.patch(`http://localhost:3001/players/${rookie.espnID}`, {
+  //         isRookie: true
+  //       });
+  //     });
+  
+  //     await Promise.all(promises);
+  //     console.log('Rookies set');
+  //   } catch (error) {
+  //     console.error('Error setting rookies:', error);
+  //   }
+  // };
+  
+
+
+  // all players loaded
+  // set stats
+  // set rookie
 
   return (
   <div> 
     <div>
 
-      <button onClick={test}>Click me</button>
+      <button onClick={testRookies}>Get players</button>
+      <button onClick={logRookies}>Log rookies</button>
+      <button onClick={makeRookies}>Set rookies</button>
 
     </div>
 

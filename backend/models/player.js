@@ -23,8 +23,8 @@ const Player = new Schema(
             recYds: {type: String, default: '0'},
             recTD: {type: String, default: '0'}
         },
-        initialValue: {type: Number, min: 1, required: true},
-        price: {type: Number, min: .01, required: true},
+        initialValue: {type: Number, min: 1, default: 1, required: true},
+        price: {type: Number, min: .01, default: .01, required: true},
         netShares: {type: Number, default: 0},
         isRookie: {type: Boolean, default: false},
         isTrending: {type: Boolean, default: false},
