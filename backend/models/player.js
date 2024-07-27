@@ -8,6 +8,7 @@ const Player = new Schema(
         image: {type: String, required: false},
         position: {type: String, required: true},
         team: {type: String, required: true},
+        age: {type: Number, min: 0, required: true},
         stats: {
             gamesPlayed: {type: String, default: '0'},
             passAttempts: {type: String, default: '0'},
@@ -24,7 +25,8 @@ const Player = new Schema(
             recTD: {type: String, default: '0'}
         },
         initialValue: {type: Number, min: 1, default: 1, required: true},
-        price: {type: Number, min: .01, default: .01, required: true},
+        currentValue: {type: Number, min: 1, default: 1, required: true},
+        sharePrice: {type: Number, min: .01, default: .01, required: true},
         netShares: {type: Number, default: 0},
         isRookie: {type: Boolean, default: false},
         isTrending: {type: Boolean, default: false},

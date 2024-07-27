@@ -13,6 +13,16 @@ installed
 - cors
 
 
+## User stories
+
+As a user, I want to be able to:
+
+Stuff I want to do and functions I will need
+
+
+
+
+
 
 if I have a create error, it could be because I deleted await
 const comment = await new Comment(req.body)
