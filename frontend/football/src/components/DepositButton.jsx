@@ -1,16 +1,30 @@
+import axios from 'axios'
 import Button from 'react-bootstrap/Button'
 import DataContext from '../DataContext'
 import { useState, useEffect, useContext } from 'react'
 
 const DepositButton = (props) => {
 
-    console.log('Deposit', props)
+    console.log('Deposit props', props)
 
     // const { currentUser, setCurrentUser} = useContext(DataContext)
+
+    const depositFunds = async () => {
+        try {
+          let userID = props.user._id
+          console.log('Deposit userID', userID)
+          const res = await axios.put(`http://localhost:3001/users/${userID}`, {
+            balance: 100
+          })
+          console.log('Balance updated:', res.data)
+        } catch (error) {
+          console.error('Error updating balance:', error)
+        }
+      }
     
     return (
 
-        <Button id='deposit'>Deposit</Button>
+        <Button id='deposit' onClick={depositFunds}>Deposit</Button>
 
     )
 }
