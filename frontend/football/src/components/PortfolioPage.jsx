@@ -1,14 +1,18 @@
-import { useState, useEffect } from 'react'
 import Nav from './Nav'
 import PlayerList from './PlayerList'
+import DataContext from '../DataContext'
+import { useState, useEffect, useContext } from 'react'
 
-const PortfolioPage = (props) => {
+const PortfolioPage = () => {
 
-    console.log(props)
+    const { currentUser, setCurrentUser} = useContext(DataContext)
 
-    let currentPlayers = props.players
+    useEffect(() => {
+        console.log('Portfolio page current user', currentUser)
+    }, [])  
+    
 
-    const [players, setPlayers] = useState([])
+
 
 
   

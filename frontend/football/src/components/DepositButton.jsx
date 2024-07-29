@@ -1,8 +1,14 @@
+import Button from 'react-bootstrap/Button'
+import DataContext from '../DataContext'
+import { useState, useEffect, useContext } from 'react'
+
 const DepositButton = () => {
 
+    const { currentUser, setCurrentUser} = useContext(DataContext)
+    
     return (
 
-        <button id='deposit'>Deposit</button>
+        <Button id='deposit'>Deposit</Button>
 
     )
 }

@@ -11,6 +11,7 @@ installed
 - morgan
 - body-parser
 - cors
+- bootstrap
 
 
 ## User stories
@@ -28,6 +29,6 @@ if I have a create error, it could be because I deleted await
 const comment = await new Comment(req.body)
 const comment = new Comment(req.body)
 
-profile pic img
+## Things to improve
 
-https://photos.google.com/search/_m8_Favorites/photo/AF1QipPsLHSAkE3lM5KNsj723BZrHNS4lwpN6tFP64JZ
+- useContext or local storage to remember user info

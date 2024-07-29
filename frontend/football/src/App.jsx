@@ -9,6 +9,7 @@ import Login from './components/Login'
 import HomePage from './components/HomePage'
 import PortfolioPage from './components/PortfolioPage'
 import AccountPage from './components/AccountPage'
+import Button from 'react-bootstrap/Button'
 
 function App() {
 
@@ -19,15 +20,15 @@ function App() {
   // set stats
 
   const [users, setUsers] = useState([])
+  const [currentUser, setCurrentUser] = useState({})
   const [players, setPlayers] = useState([])
   const [portfolios, setPortfolios] = useState([])
   const [watchlists, setWatchlists] = useState([])
   const [trades, setTrades] = useState([])
 
-  const [currentUser, setCurrentUser] = useState({})
-
   useEffect(() => {
     getUsers()
+    getCurrentUser()
     getPlayers()
     getPortfolios()
     getWatchlists()
@@ -39,14 +40,26 @@ function App() {
       const res = await axios.get(`http://localhost:3001/users`) 
       let userData = res.data
       let loggedInUser = userData.filter(user => user.isLoggedIn === true)
+      console.log('Logged in user:', loggedInUser)
       setUsers(userData)
+    } catch (error) {
+      console.error('Error getting users:', error)
+    }
+  }
+
+  const getCurrentUser = async () => {
+    try {
+      const res = await axios.get(`http://localhost:3001/users`) 
+      let userData = res.data
+      let loggedInUser = userData.filter(user => user.isLoggedIn === true)
+      console.log('Logged in user:', loggedInUser)
       setCurrentUser(loggedInUser)
     } catch (error) {
       console.error('Error getting users:', error)
     }
   }
 
-  const getPlayers = async () => {
+   const getPlayers = async () => {
     try {
       const res = await axios.get(`http://localhost:3001/players`) 
       let playerData = res.data
@@ -101,17 +114,13 @@ function App() {
 
   return (
   <div> 
-    <div>
-
-   <button onClick={getUsers}>Get users</button>
-   <button onClick={checkState}>Check state</button>
-
-      
+    <div>  
+   <button onClick={checkState}>Check state</button>      
 
     </div>
 
     <div className='app'> 
-      <DataContext.Provider value={{currentUser, setCurrentUser}}>
+      <DataContext.Provider value={{}}>
         {/* <Login /> */}
       <Routes>
         <Route path='/' element={ <HomePage />}/>
