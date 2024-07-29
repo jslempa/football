@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { Routes, Route, createPath } from 'react-router-dom' 
 import { BASE_URL } from './globals'
 import playersArray from './data/playersArray'
@@ -24,21 +24,23 @@ function App() {
   const [watchlists, setWatchlists] = useState([])
   const [trades, setTrades] = useState([])
 
+  const [currentUser, setCurrentUser] = useState({})
+
   useEffect(() => {
     getUsers()
     getPlayers()
     getPortfolios()
     getWatchlists()
-    getTrades()
- 
+    getTrades() 
   }, [])  
 
-  // works
   const getUsers = async () => {
     try {
       const res = await axios.get(`http://localhost:3001/users`) 
       let userData = res.data
+      let loggedInUser = userData.filter(user => user.isLoggedIn === true)
       setUsers(userData)
+      setCurrentUser(loggedInUser)
     } catch (error) {
       console.error('Error getting users:', error)
     }
@@ -84,11 +86,9 @@ function App() {
     }
   }
 
- 
-
-
   const checkState = () => {
     console.log('Users', users)
+    console.log('Current user', currentUser)
     console.log('Players', players)
     console.log('Portfolios', portfolios)
     console.log('Watchlists', watchlists)
@@ -111,11 +111,11 @@ function App() {
     </div>
 
     <div className='app'> 
-      <DataContext.Provider value={{test}}>
+      <DataContext.Provider value={{currentUser, setCurrentUser}}>
         {/* <Login /> */}
       <Routes>
         <Route path='/' element={ <HomePage />}/>
-        <Route path='/portfolio' element={ <PortfolioPage />}/>
+        <Route path='/portfolio' element={ <PortfolioPage players={players}/>}/>
         <Route path='/account' element={ <AccountPage />}/>
       </Routes>   
       </DataContext.Provider>  

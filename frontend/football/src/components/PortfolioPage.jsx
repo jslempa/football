@@ -1,7 +1,12 @@
+import { useState } from 'react'
 import Nav from './Nav'
 import PlayerList from './PlayerList'
 
-const PortfolioPage = () => {
+const PortfolioPage = (props) => {
+
+    let players = props.players
+    console.log(players)
+  
 
     return (
         <div className='portfolio'>

@@ -27,3 +27,7 @@ Stuff I want to do and functions I will need
 if I have a create error, it could be because I deleted await
 const comment = await new Comment(req.body)
 const comment = new Comment(req.body)
+
+profile pic img
+
+https://photos.google.com/search/_m8_Favorites/photo/AF1QipPsLHSAkE3lM5KNsj723BZrHNS4lwpN6tFP64JZ
