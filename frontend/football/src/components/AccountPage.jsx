@@ -14,7 +14,8 @@ const AccountPage = () => {
 
     return (
         <div className='account'>
-            <h1>Account</h1>
+            <img src='https://placehold.co/300/green/white' />
+            <h1>{currentUser[0].username}</h1>
             <DepositButton />
             <WithdrawButton />
             <Nav />
@@ -23,3 +24,4 @@ const AccountPage = () => {
 }
 
 export default AccountPage
+

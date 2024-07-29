@@ -1,11 +1,16 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Nav from './Nav'
 import PlayerList from './PlayerList'
 
 const PortfolioPage = (props) => {
 
-    let players = props.players
-    console.log(players)
+    console.log(props)
+
+    let currentPlayers = props.players
+
+    const [players, setPlayers] = useState([])
+
+
   
 
     return (

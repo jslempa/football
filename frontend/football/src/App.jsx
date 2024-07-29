@@ -88,11 +88,11 @@ function App() {
 
   const checkState = () => {
     console.log('Users', users)
-    console.log('Current user', currentUser)
     console.log('Players', players)
     console.log('Portfolios', portfolios)
     console.log('Watchlists', watchlists)
     console.log('Trades', trades)
+    console.log('Current user', currentUser)
  }
 
 
