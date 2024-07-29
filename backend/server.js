@@ -34,6 +34,7 @@ app.put('/players/:espnID', playerController.updatePlayer)
 app.delete('/players/:id', playerController.deletePlayer)
 
 app.get('/portfolios', portfolioController.getAllPortfolios)
+app.get('/portfolios/user/:userID', portfolioController.getPortfolioByUser)
 app.get('/portfolios/:id', portfolioController.getPortfolioById)
 app.post('/portfolios', portfolioController.createPortfolio)
 app.put('/portfolios/:id', portfolioController.updatePortfolio)

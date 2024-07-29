@@ -11,6 +11,7 @@ import PortfolioPage from './components/PortfolioPage'
 import AccountPage from './components/AccountPage'
 import Button from 'react-bootstrap/Button'
 
+
 function App() {
 
   const test = null
@@ -79,6 +80,20 @@ function App() {
     }
   }
 
+  const getPortfolioByUser = async () => {
+    try {
+      let userID = currentUser[0]._id
+      console.log(userID)
+      // const res = await axios.get(`http://localhost:3001/portfolios/user/${currentUser[0].id}`) 
+      // let portfolioData = res.data
+      // console.log(portfolioData)
+      // console.log(currentUser)
+    } catch (error) {
+      console.error('Error getting portfolios:', error)
+    }
+  }
+
+
   const getWatchlists = async () => {
     try {
       const res = await axios.get(`http://localhost:3001/watchlists`) 
@@ -108,14 +123,12 @@ function App() {
     console.log('Current user', currentUser)
  }
 
-
-
-
-
   return (
   <div> 
     <div>  
-   <button onClick={checkState}>Check state</button>      
+   <Button onClick={checkState}>Check state</Button>     
+
+   <Button onClick={getPlayersInPortfolio}>Get Players</Button> 
 
     </div>
 
@@ -124,7 +137,7 @@ function App() {
         {/* <Login /> */}
       <Routes>
         <Route path='/' element={ <HomePage />}/>
-        <Route path='/portfolio' element={ <PortfolioPage players={players}/>}/>
+        <Route path='/portfolio' element={ <PortfolioPage />}/>
         <Route path='/account' element={ <AccountPage />}/>
       </Routes>   
       </DataContext.Provider>  

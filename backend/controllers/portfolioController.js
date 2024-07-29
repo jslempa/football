@@ -22,6 +22,19 @@ const getPortfolioById = async (req, res) => {
     }
 }
 
+const getPortfolioByUser = async (req, res) => {
+    try {
+        const { userID } = req.params
+        const portfolio = await Portfolio.find({ user: userID})
+        if (portfolio) {
+            return res.json(portfolio)
+        }
+        return res.status(404).send('Portfolio not found')
+    } catch (error) {
+        return res.status(500).send(error.message)
+    }
+}
+
 const createPortfolio = async (req, res) => {
     try {
         const portfolio = new Portfolio(req.body)
@@ -63,6 +76,7 @@ const deletePortfolio = async (req, res) => {
 module.exports = {
     getAllPortfolios,
     getPortfolioById,
+    getPortfolioByUser,
     createPortfolio,
     updatePortfolio,
     deletePortfolio

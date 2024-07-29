@@ -32,3 +32,4 @@ const comment = new Comment(req.body)
 ## Things to improve
 
 - useContext or local storage to remember user info
+    - Load users not hard code

@@ -15,31 +15,13 @@ const AccountPage = () => {
         image: "https://placehold.co/300/green/white",
         isLoggedIn: true,
         balance: 100,
-    })
-
-    // useEffect(() => {
-    //     getCurrentUser()
-    //     console.log('Account page current user', currentUser)
-    // }, [])  
-    
-    // const getCurrentUser = async () => {
-    //     try {
-    //       const res = await axios.get(`http://localhost:3001/users`) 
-    //       let userData = res.data
-    //       let loggedInUser = userData.filter(user => user.isLoggedIn === true)
-    //       console.log('Logged in user:', loggedInUser)
-    //       setCurrentUser(loggedInUser)
-    //     } catch (error) {
-    //       console.error('Error getting users:', error)
-    //     }
-    //   }
-    
+    })   
 
 
-      return (
+    return (
         <div className='account'>   
          
-            <div>
+            <div className='account-content'>
               <img src={currentUser.image} alt='profile' />
               <h2>{currentUser.username}</h2>
               <h4>Current balance: ${currentUser.balance}</h4>
