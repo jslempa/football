@@ -7,22 +7,14 @@ const main = async () => {
     const users = [
         {
             username: 'jslempa',
-            password: '123456',
-            email: 'jslempa@gmail.com',
-            image: 'img.png',
+            password: '111111',
+            email: 'fakeemail1@gmail.com',
+            image: 'https://photos.google.com/search/_m8_Favorites/photo/AF1QipPsLHSAkE3lM5KNsj723BZrHNS4lwpN6tFP64JZ',
             isLoggedIn: true,
             balance: 100
         },
         {
-            username: 'lavenderwich',
-            password: '111111',
-            email: 'fakeemail1@gmail.com',
-            image: 'img.png',
-            isLoggedIn: false,
-            balance: 0
-        },
-        {
-            username: 'gideonmcove',
+            username: 'jhalpert',
             password: '222222',
             email: 'fakeemail2@gmail.com',
             image: 'img.png',
@@ -30,9 +22,25 @@ const main = async () => {
             balance: 0
         },
         {
-            username: 'jtaubman',
+            username: 'pbeesly',
             password: '333333',
             email: 'fakeemail3@gmail.com',
+            image: 'img.png',
+            isLoggedIn: false,
+            balance: 0
+        },
+        {
+            username: 'mscott',
+            password: '444444',
+            email: 'fakeemail4@gmail.com',
+            image: 'img.png',
+            isLoggedIn: false,
+            balance: 0
+        },
+        {
+            username: 'dschrute',
+            password: '555555',
+            email: 'fakeemail5@gmail.com',
             image: 'img.png',
             isLoggedIn: false,
             balance: 0
