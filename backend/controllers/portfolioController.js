@@ -25,7 +25,7 @@ const getPortfolioById = async (req, res) => {
 const getPortfolioByUser = async (req, res) => {
     try {
         const { userID } = req.params
-        const portfolio = await Portfolio.find({ user: userID})
+        const portfolio = await Portfolio.find({ user: userID })
         if (portfolio) {
             return res.json(portfolio)
         }

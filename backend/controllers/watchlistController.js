@@ -22,6 +22,19 @@ const getWatchlistById = async (req, res) => {
     }
 }
 
+const getWatchlistByUser = async (req, res) => {
+    try {
+        const { userID } = req.params
+        const watchlist = await Watchlist.find({ user: userID })
+        if (watchlist) {
+            return res.json(watchlist)
+        }
+        return res.status(404).send('Watchlist not found')
+    } catch (error) {
+        return res.status(500).send(error.message)
+    }
+}
+
 const createWatchlist = async (req, res) => {
     try {
         const watchlist = new Watchlist(req.body)
@@ -63,6 +76,7 @@ const deleteWatchlist = async (req, res) => {
 module.exports = {
     getAllWatchlists,
     getWatchlistById,
+    getWatchlistByUser,
     createWatchlist,
     updateWatchlist,
     deleteWatchlist
