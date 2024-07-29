@@ -53,7 +53,7 @@ app.put('/users/:id', userController.updateUser)
 app.delete('/users/:id', userController.deleteUser)
 
 app.get('/watchlists', watchlistController.getAllWatchlists)
-app.get('/portfolios/user/:userID', portfolioController.getPortfolioByUser)
+app.get('/watchlists/user/:userID', watchlistController.getWatchlistByUser)
 app.get('/watchlists/:id', watchlistController.getWatchlistById)
 app.post('/watchlists', watchlistController.createWatchlist)
 app.put('/watchlists/:id', watchlistController.updateWatchlist)

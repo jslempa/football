@@ -40,8 +40,6 @@ function App() {
     try {
       const res = await axios.get(`http://localhost:3001/users`) 
       let userData = res.data
-      let loggedInUser = userData.filter(user => user.isLoggedIn === true)
-      console.log('Logged in user:', loggedInUser)
       setUsers(userData)
     } catch (error) {
       console.error('Error getting users:', error)
@@ -80,14 +78,15 @@ function App() {
     }
   }
 
+  // Works!!!
   const getPortfolioByUser = async () => {
     try {
       let userID = currentUser[0]._id
-      console.log(userID)
-      // const res = await axios.get(`http://localhost:3001/portfolios/user/${currentUser[0].id}`) 
-      // let portfolioData = res.data
-      // console.log(portfolioData)
-      // console.log(currentUser)
+      console.log('UserID', userID)
+      const res = await axios.get(`http://localhost:3001/portfolios/user/${userID}`) 
+      let portfolioData = res.data
+      console.log('Portfolio', portfolioData)
+      console.log('Current user', currentUser)
     } catch (error) {
       console.error('Error getting portfolios:', error)
     }
@@ -98,6 +97,20 @@ function App() {
       const res = await axios.get(`http://localhost:3001/watchlists`) 
       let watchlistData = res.data
       setWatchlists(watchlistData)
+    } catch (error) {
+      console.error('Error getting watchlists:', error)
+    }
+  }
+
+  // Works!!!
+  const getWatchlistByUser = async () => {
+    try {
+      let userID = currentUser[0]._id
+      console.log('UserID', userID)
+      const res = await axios.get(`http://localhost:3001/watchlists/user/${userID}`) 
+      let watchlistData = res.data
+      console.log('Watchlist', watchlistData)
+      console.log('Current user', currentUser)
     } catch (error) {
       console.error('Error getting watchlists:', error)
     }
@@ -127,7 +140,8 @@ function App() {
     <div>  
    <Button onClick={checkState}>Check state</Button>     
 
-   <Button onClick={getPlayersInPortfolio}>Get Players</Button> 
+   <Button onClick={getPortfolioByUser}>Get portfolio</Button> 
+   <Button onClick={getWatchlistByUser}>Get watchlist</Button> 
 
     </div>
 
