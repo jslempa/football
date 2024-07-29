@@ -18,31 +18,81 @@ function App() {
   // rookies set
   // set stats
 
-  const [users, setUsers] = useState({})
+  const [users, setUsers] = useState([])
+  const [players, setPlayers] = useState([])
+  const [portfolios, setPortfolios] = useState([])
+  const [watchlists, setWatchlists] = useState([])
+  const [trades, setTrades] = useState([])
 
   useEffect(() => {
     getUsers()
-    console.log('Got users')
+    getPlayers()
+    getPortfolios()
+    getWatchlists()
+    getTrades()
+ 
   }, [])  
-
 
   // works
   const getUsers = async () => {
     try {
       const res = await axios.get(`http://localhost:3001/users`) 
       let userData = res.data
-      console.log(userData)
       setUsers(userData)
     } catch (error) {
       console.error('Error getting users:', error)
     }
- }
+  }
+
+  const getPlayers = async () => {
+    try {
+      const res = await axios.get(`http://localhost:3001/players`) 
+      let playerData = res.data
+      setPlayers(playerData)
+    } catch (error) {
+      console.error('Error getting players:', error)
+    }
+  }
+
+  const getPortfolios = async () => {
+    try {
+      const res = await axios.get(`http://localhost:3001/portfolios`) 
+      let portfolioData = res.data
+      setPortfolios(portfolioData)
+    } catch (error) {
+      console.error('Error getting portfolios:', error)
+    }
+  }
+
+  const getWatchlists = async () => {
+    try {
+      const res = await axios.get(`http://localhost:3001/watchlists`) 
+      let watchlistData = res.data
+      setWatchlists(watchlistData)
+    } catch (error) {
+      console.error('Error getting watchlists:', error)
+    }
+  }
+
+  const getTrades = async () => {
+    try {
+      const res = await axios.get(`http://localhost:3001/trades`) 
+      let tradeData = res.data
+      setTrades(tradeData)
+    } catch (error) {
+      console.error('Error getting trades:', error)
+    }
+  }
 
  
 
 
   const checkState = () => {
     console.log('Users', users)
+    console.log('Players', players)
+    console.log('Portfolios', portfolios)
+    console.log('Watchlists', watchlists)
+    console.log('Trades', trades)
  }
 
 
