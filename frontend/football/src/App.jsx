@@ -149,9 +149,9 @@ function App() {
       <DataContext.Provider value={{}}>
         {/* <Login /> */}
       <Routes>
-        <Route path='/' element={ <HomePage />}/>
-        <Route path='/portfolio' element={ <PortfolioPage />}/>
-        <Route path='/account' element={ <AccountPage />}/>
+        <Route path='/' element={ <HomePage user={currentUser}/>}/>
+        <Route path='/portfolio' element={ <PortfolioPage user={currentUser} />}/>
+        <Route path='/account' element={ <AccountPage user={currentUser}/>}/>
       </Routes>   
       </DataContext.Provider>  
     </div>
