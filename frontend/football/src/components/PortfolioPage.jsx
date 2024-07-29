@@ -7,6 +7,7 @@ const PortfolioPage = () => {
         <div className='portfolio'>
             <h1>Portfolio</h1>
             <PlayerList />
+            <PlayerList />
             <Nav />
         </div>
     )

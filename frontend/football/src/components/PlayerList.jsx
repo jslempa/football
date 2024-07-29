@@ -9,7 +9,7 @@ const PlayerList = () => {
     return (
         <div>
             <h1>Player list</h1>
-            <button onClick={test}>Click me</button>
+            {/* <button onClick={test}>Click me</button> */}
         </div>
     )
 }

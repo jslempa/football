@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Routes, Route, createPath } from 'react-router-dom' 
 import { BASE_URL } from './globals'
 import playersArray from './data/playersArray'
@@ -17,13 +17,44 @@ function App() {
   // all players loaded
   // rookies set
   // set stats
-  
+
+  const [users, setUsers] = useState({})
+
+  useEffect(() => {
+    getUsers()
+    console.log('Got users')
+  }, [])  
+
+
+  // works
+  const getUsers = async () => {
+    try {
+      const res = await axios.get(`http://localhost:3001/users`) 
+      let userData = res.data
+      console.log(userData)
+      setUsers(userData)
+    } catch (error) {
+      console.error('Error getting users:', error)
+    }
+ }
+
+ 
+
+
+  const checkState = () => {
+    console.log('Users', users)
+ }
+
+
+
+
 
   return (
   <div> 
     <div>
 
-   
+   <button onClick={getUsers}>Get users</button>
+   <button onClick={checkState}>Check state</button>
 
       
 
