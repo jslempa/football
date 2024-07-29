@@ -1,4 +1,5 @@
 import { useEffect, useState, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Routes, Route, createPath } from 'react-router-dom' 
 import { BASE_URL } from './globals'
 import playersArray from './data/playersArray'
@@ -14,11 +15,11 @@ import Button from 'react-bootstrap/Button'
 
 function App() {
 
-  const test = null
-
   // all players loaded
   // rookies set
   // set stats
+
+  let navigate = useNavigate()
 
   const [users, setUsers] = useState([])
   const [currentUser, setCurrentUser] = useState({})
@@ -135,6 +136,11 @@ function App() {
     console.log('Current user', currentUser)
  }
 
+ const showPlayer = (espnID) => {
+  navigate(`/player/${espnID}`)
+}
+
+
   return (
   <div> 
     <div>  
@@ -149,9 +155,10 @@ function App() {
       <DataContext.Provider value={{}}>
         {/* <Login /> */}
       <Routes>
-        <Route path='/' element={ <HomePage user={currentUser}/>}/>
-        <Route path='/portfolio' element={ <PortfolioPage user={currentUser} />}/>
+        <Route path='/' element={ <HomePage user={currentUser} showPlayer={showPlayer}/>}/>
+        <Route path='/portfolio' element={ <PortfolioPage user={currentUser} showPlayer={showPlayer}/>}/>
         <Route path='/account' element={ <AccountPage user={currentUser}/>}/>
+        <Route path='/player/:espnID' element={<PlayerDetail user={currentUser}/>}/>
       </Routes>   
       </DataContext.Provider>  
     </div>

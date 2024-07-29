@@ -6,6 +6,8 @@ const HomePage = (props) => {
 
     console.log('props', props)
 
+    
+
     return (
         <div className='home'>
             <SearchBar />
