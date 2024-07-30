@@ -9,6 +9,7 @@ const WithdrawButton = (props) => {
 
     // const { currentUser, setCurrentUser} = useContext(DataContext)
 
+    // needs an input
     const withdrawFunds = async () => {
         try {
           let userID = props.user._id

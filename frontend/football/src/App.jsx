@@ -10,6 +10,7 @@ import Login from './components/Login'
 import HomePage from './components/HomePage'
 import PortfolioPage from './components/PortfolioPage'
 import AccountPage from './components/AccountPage'
+import PlayerDetail from './components/PlayerDetail'
 import Button from 'react-bootstrap/Button'
 
 

@@ -12,9 +12,9 @@ const HomePage = (props) => {
         <div className='home'>
             <SearchBar />
             {/* <h1>Hello {props.user[0].username}!</h1>   */}
-            <CarouselThing />      
-            <CarouselThing /> 
-            <CarouselThing /> 
+            {/* <CarouselThing />       */}
+            {/* <CarouselThing />  */}
+            {/* <CarouselThing />  */}
             <Nav />
         </div>
     )

@@ -1,21 +1,20 @@
 import axios from 'axios'
+import Button from 'react-bootstrap/Button'
 import { useState } from 'react'
 
-const BuyButton = () => {
+const BuyButton = (props) => {
 
-    const [currentUser, setCurrentUser] = useState({
-        _id: "66a79ceaa9b2ead5607bc68b",
-        username: "jslempa",
-        password: "111111",
-        email: "fakeemail1@gmail.com",
-        image: "https://placehold.co/300/green/white",
-        isLoggedIn: true,
-        balance: 100,
-    })
+    console.log('Buy', props)
 
+    // needs an input
+    const buyShares = async () => {
+
+    }
     
     return (
-        <button>Buy</button>
+        
+        <Button id='buy' onClick={buyShares}>Buy</Button>
+
     )
 }
 

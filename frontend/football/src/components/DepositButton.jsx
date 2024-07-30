@@ -9,6 +9,7 @@ const DepositButton = (props) => {
 
     // const { currentUser, setCurrentUser} = useContext(DataContext)
 
+    // needs an input
     const depositFunds = async () => {
         try {
           let userID = props.user._id
