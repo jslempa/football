@@ -20,7 +20,12 @@ const PlayerList = (props) => {
                 searchResults.length > 0 ? (
                     searchResults.map((result, index) => (
                         <div className='player-card-data' key={index} onClick={()=>navigate(`/players/${result.espnID}`)}>
+                        <img src={result.image}/>    
                         <h3>{result.name}</h3>
+                        <h5>{result.position}</h5>
+                        <h5>{result.team}</h5>
+                        <h5>${result.sharePrice}</h5>
+
                         </div>
                     ))
                 ) : null
