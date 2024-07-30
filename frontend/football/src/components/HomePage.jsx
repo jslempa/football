@@ -4,7 +4,7 @@ import Nav from './Nav'
 
 const HomePage = (props) => {
 
-    console.log('props', props)
+    //console.log('props', props)
 
     
 

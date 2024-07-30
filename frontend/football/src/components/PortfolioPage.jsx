@@ -6,11 +6,13 @@ import { useState, useEffect, useContext } from 'react'
 
 const PortfolioPage = (props) => {
 
+    const [test, setTest] = useState(null)
+
     console.log('props', props)
 
     let thisUserID = props.user[0]._id
 
-    console.log(thisUserID)
+    console.log('current user ID', thisUserID)
 
     // const [currentUser, setCurrentUser] = useState({
     //     _id: "66a79ceaa9b2ead5607bc68b",
