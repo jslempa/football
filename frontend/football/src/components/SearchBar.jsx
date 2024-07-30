@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { useContext } from 'react'
 import { useNavigate, useNavigation } from 'react-router-dom'
+import DataContext from '../DataContext'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import InputGroup from 'react-bootstrap/InputGroup'
@@ -10,8 +12,10 @@ const SearchBar = (props) => {
 
     let navigate = useNavigate()
 
+    const { searchResults, setSearchResults} = useContext(DataContext)
+
     const [searchQuery, setSearchQuery] = useState('')
-    const [searchResults, setSearchResults] = useState([])
+    //const [searchResults, setSearchResults] = useState([])
 
     const handleChange = (e) => {
         setSearchQuery(e.target.value)

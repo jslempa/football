@@ -35,6 +35,9 @@ function App() {
   const [watchlists, setWatchlists] = useState([])
   const [trades, setTrades] = useState([])
 
+  // search data
+  const [searchResults, setSearchResults] = useState([])
+
   useEffect(() => {
     getUsers()
     getCurrentUser()
@@ -161,7 +164,7 @@ function App() {
     </div>
 
     <div className='app'> 
-      <DataContext.Provider value={{}}>
+      <DataContext.Provider value={{searchResults, setSearchResults}}>
         {/* <Login /> */}
       <Routes>
         <Route path='/' element={ <HomePage user={currentUser} portfolio={currentPortfolio} watchlist={currentWatchList} players={players} showPlayer={showPlayer}/>}/>

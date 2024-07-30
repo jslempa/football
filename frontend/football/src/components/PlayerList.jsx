@@ -1,21 +1,14 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import DataContext from '../DataContext'
 
-const PlayerList = () => {
+const PlayerList = (props) => {
 
-    const [currentUser, setCurrentUser] = useState({
-        _id: "66a79ceaa9b2ead5607bc68b",
-        username: "jslempa",
-        password: "111111",
-        email: "fakeemail1@gmail.com",
-        image: "https://placehold.co/300/green/white",
-        isLoggedIn: true,
-        balance: 100,
-    })
+    console.log('player list props', props)
 
-    const [ownedPlayers, setOwnedPlayers] = useState([])
+    const { searchResults, setSearchResults } = useContext(DataContext) 
 
-    
+    console.log(searchResults[0])
 
     return (
         <div>
