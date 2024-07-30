@@ -4,13 +4,14 @@ import Nav from './Nav'
 
 const HomePage = (props) => {
 
-    //console.log('props', props)
+    //console.log('home props', props)
+    //console.log('home', props.players)
 
     
 
     return (
         <div className='home'>
-            <SearchBar />
+            <SearchBar players={props.players}/>
             {/* <h1>Hello {props.user[0].username}!</h1>   */}
             {/* <CarouselThing />       */}
             {/* <CarouselThing />  */}

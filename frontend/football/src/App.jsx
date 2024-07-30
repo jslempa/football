@@ -163,7 +163,7 @@ function App() {
       <DataContext.Provider value={{}}>
         {/* <Login /> */}
       <Routes>
-        <Route path='/' element={ <HomePage user={currentUser} portfolio={currentPortfolio} watchlist={currentWatchList} showPlayer={showPlayer}/>}/>
+        <Route path='/' element={ <HomePage user={currentUser} portfolio={currentPortfolio} watchlist={currentWatchList} players={players} showPlayer={showPlayer}/>}/>
         <Route path='/portfolio' element={ <PortfolioPage user={currentUser} portfolio={currentPortfolio} watchlist={currentWatchList} showPlayer={showPlayer}/>}/>
         <Route path='/account' element={ <AccountPage user={currentUser}/>}/>
         <Route path='/player/:espnID' element={<PlayerDetail user={currentUser} portfolio={currentPortfolio} watchlist={currentWatchList}/>}/>
