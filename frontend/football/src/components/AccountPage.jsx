@@ -9,26 +9,21 @@ const AccountPage = (props) => {
 
   console.log('Account props', props)
 
-    // const [currentUser, setCurrentUser] = useState({
-    //     _id: "66a79ceaa9b2ead5607bc68b",
-    //     username: "jslempa",
-    //     password: "111111",
-    //     email: "fakeemail1@gmail.com",
-    //     image: "https://placehold.co/300/green/white",
-    //     isLoggedIn: true,
-    //     balance: 100,
-    // })   
+  const { currentUser, setCurrentUser} = useContext(DataContext)
 
+  console.log('Account page current user', currentUser[0].username)
+
+    //view trade/transaction history?
 
     return (
         <div className='account'>   
          
             <div className='account-content'>
-              <img src={props.user[0].image} alt='profile' />
-              <h2>{props.user[0].username}</h2>
-              <h4>Current balance: ${props.user[0].balance}</h4>
-              <DepositButton user={props.user[0]}/>
-              <WithdrawButton user={props.user[0]}/>
+              <img src={currentUser[0].image} alt='profile' />
+              <h2>{currentUser[0].username}</h2>
+              <h4>Current balance: ${currentUser[0].balance}</h4>
+              <DepositButton user={currentUser[0]}/>
+              <WithdrawButton user={currentUser[0]}/>
             </div>
          
           <Nav />
