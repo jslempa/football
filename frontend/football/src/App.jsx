@@ -12,6 +12,7 @@ import PortfolioPage from './components/PortfolioPage'
 import AccountPage from './components/AccountPage'
 import PlayerDetail from './components/PlayerDetail'
 import Button from 'react-bootstrap/Button'
+import PlayerList from './components/PlayerList'
 
 
 function App() {
@@ -166,7 +167,8 @@ function App() {
         <Route path='/' element={ <HomePage user={currentUser} portfolio={currentPortfolio} watchlist={currentWatchList} players={players} showPlayer={showPlayer}/>}/>
         <Route path='/portfolio' element={ <PortfolioPage user={currentUser} portfolio={currentPortfolio} watchlist={currentWatchList} showPlayer={showPlayer}/>}/>
         <Route path='/account' element={ <AccountPage user={currentUser}/>}/>
-        <Route path='/player/:espnID' element={<PlayerDetail user={currentUser} portfolio={currentPortfolio} watchlist={currentWatchList}/>}/>
+        <Route path='/players' element={<PlayerList user={currentUser} portfolio={currentPortfolio} watchlist={currentWatchList} showPlayer={showPlayer}/>}/>
+        <Route path='/players/:espnID' element={<PlayerDetail user={currentUser} portfolio={currentPortfolio} watchlist={currentWatchList}/>}/>
       </Routes>   
       </DataContext.Provider>  
     </div>

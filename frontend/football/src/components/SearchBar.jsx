@@ -11,6 +11,7 @@ const SearchBar = (props) => {
     let navigate = useNavigate()
 
     const [searchQuery, setSearchQuery] = useState('')
+    const [searchResults, setSearchResults] = useState([])
 
     const handleChange = (e) => {
         setSearchQuery(e.target.value)
@@ -19,28 +20,13 @@ const SearchBar = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log('submitted', searchQuery)
-        getResults()
-        // //get player by search query
-        // getResults(searchQuery) //change to e.target.value?
-        // navigate('/results')
+        console.log('submitted', searchQuery) //works
+        let allPlayers = props.players
+        let matchingPlayers = allPlayers.filter(player => player.name.toLowerCase().includes(searchQuery.toLowerCase()))
+        console.log('results', matchingPlayers) //works  
+        setSearchResults(matchingPlayers)
+        navigate('/players')
     }
-
-    const getResults = () => {
-
-            let allPlayers = props.players
-            let matchingPlayers = allPlayers.filter(player => player.name.toLowerCase().includes(searchQuery.toLowerCase()))
-            console.log('results', matchingPlayers)        
-      
-            // const res = await axios.get(`${BASE_URL}/events`)
-            // let eventData = res.data
-            // console.log('Got all events:', eventData)
-            // const matchingEvents = eventData.filter(event => event.artist.toLowerCase().includes(searchQuery.toLowerCase()))
-            // console.log('These events match:', matchingEvents)
-            // setEvents(matchingEvents)
-       
-            // console.error('Cannot load events', error)
-    }    
 
     return (
 
