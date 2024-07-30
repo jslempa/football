@@ -2,6 +2,7 @@ import axios from 'axios'
 import Nav from './Nav'
 import DepositButton from './DepositButton'
 import WithdrawButton from './WithdrawButton'
+import SwitchUserButton from './SwitchUserButton'
 import DataContext from '../DataContext'
 import { useState, useEffect, useContext } from 'react'
 
@@ -22,8 +23,9 @@ const AccountPage = (props) => {
               <img src={currentUser[0].image} alt='profile' />
               <h2>{currentUser[0].username}</h2>
               <h4>Current balance: ${currentUser[0].balance}</h4>
-              <DepositButton user={currentUser[0]}/>
-              <WithdrawButton user={currentUser[0]}/>
+              <DepositButton />
+              <WithdrawButton />
+              <SwitchUserButton />
             </div>
          
           <Nav />
