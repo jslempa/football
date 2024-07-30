@@ -1,3 +1,5 @@
+import { useContext } from 'react'
+import DataContext from '../DataContext'
 import SearchBar from './SearchBar'
 import CarouselThing from './CarouselThing'
 import Nav from './Nav'
@@ -6,6 +8,8 @@ const HomePage = (props) => {
 
     //console.log('home props', props)
     //console.log('home', props.players)
+
+    const {} = useContext(DataContext)
 
     
 

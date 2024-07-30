@@ -26,7 +26,9 @@ function App() {
   // current user data, context
   const [currentUser, setCurrentUser] = useState({})
   const [currentPortfolio, setCurrentPortfolio] = useState({})
-  const [currentWatchList, setCurrentWatchList] = useState({})
+  const [currentWatchlist, setCurrentWatchlist] = useState({})
+  const [playersInPorfolio, setPlayersInPortfolio] = useState([])
+  const [playersInWatchlist, setPlayersInWatchlist] = useState([])
 
   // all data
   const [users, setUsers] = useState([])
@@ -37,10 +39,15 @@ function App() {
 
   // search data, context
   const [searchResults, setSearchResults] = useState([])
+  const [selectedPlayer, setSelectedPlayer] = useState({})
 
   useEffect(() => {
-    getUsers()
+    
     getCurrentUser()
+    getCurrentPortfolio()
+    getCurrentWatchlist()
+
+    getUsers()    
     getPlayers()
     getPortfolios()
     getWatchlists()
@@ -90,9 +97,9 @@ function App() {
   }
 
   // Works!!!
-  const getPortfolioByUser = async () => {
+  const getCurrentPortfolio = async () => {
     try {
-      let userID = currentUser[0]._id
+      let userID = currentUser[0].id
       console.log('UserID', userID)
       const res = await axios.get(`http://localhost:3001/portfolios/user/${userID}`) 
       let portfolioData = res.data
@@ -115,15 +122,15 @@ function App() {
   }
 
   // Works!!!
-  const getWatchlistByUser = async () => {
+  const getCurrentWatchlist = async () => {
     try {
-      let userID = currentUser[0]._id
+      let userID = currentUser[0].id
       console.log('UserID', userID)
       const res = await axios.get(`http://localhost:3001/watchlists/user/${userID}`) 
       let watchlistData = res.data
       console.log('Watchlist', watchlistData)
       console.log('Current user', currentUser)
-      setCurrentWatchList(watchlistData) // this line ?
+      setCurrentWatchlist(watchlistData) // this line ?
     } catch (error) {
       console.error('Error getting watchlists:', error)
     }
@@ -140,11 +147,11 @@ function App() {
   }
 
   const checkState = () => {
-    console.log('Users', users)
-    console.log('Players', players)
-    console.log('Portfolios', portfolios)
-    console.log('Watchlists', watchlists)
-    console.log('Trades', trades)
+    // console.log('Users', users)
+    // console.log('Players', players)
+    // console.log('Portfolios', portfolios)
+    // console.log('Watchlists', watchlists)
+    // console.log('Trades', trades)
     console.log('Current user', currentUser)
  }
 
@@ -156,21 +163,21 @@ function App() {
   return (
   <div> 
     <div>  
-   {/* <Button onClick={checkState}>Check state</Button>   
-   <Button onClick={getPortfolioByUser}>Get portfolio</Button> 
+   <Button onClick={checkState}>Check state</Button>   
+   {/* <Button onClick={getPortfolioByUser}>Get portfolio</Button> 
    <Button onClick={getWatchlistByUser}>Get watchlist</Button>  */}
 
     </div>
 
     <div className='app'> 
-      <DataContext.Provider value={{currentUser, setCurrentUser, searchResults, setSearchResults}}>
+      <DataContext.Provider value={{currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer}}>
         {/* <Login /> */}
       <Routes>
-        <Route path='/' element={ <HomePage user={currentUser} portfolio={currentPortfolio} watchlist={currentWatchList} players={players} showPlayer={showPlayer}/>}/>
-        <Route path='/portfolio' element={ <PortfolioPage user={currentUser} portfolio={currentPortfolio} watchlist={currentWatchList} showPlayer={showPlayer}/>}/>
-        <Route path='/account' element={ <AccountPage user={currentUser}/>}/>
-        <Route path='/players' element={<PlayerList user={currentUser} portfolio={currentPortfolio} watchlist={currentWatchList} showPlayer={showPlayer}/>}/>
-        <Route path='/players/:espnID' element={<PlayerDetail user={currentUser} portfolio={currentPortfolio} watchlist={currentWatchList}/>}/>
+        <Route path='/' element={ <HomePage showPlayer={showPlayer}/>}/>
+        <Route path='/portfolio' element={ <PortfolioPage showPlayer={showPlayer}/>}/>
+        <Route path='/account' element={ <AccountPage />}/>
+        <Route path='/players' element={<PlayerList showPlayer={showPlayer}/>}/>
+        <Route path='/players/:espnID' element={<PlayerDetail />}/>
       </Routes>   
       </DataContext.Provider>  
     </div>
