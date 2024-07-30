@@ -156,10 +156,9 @@ function App() {
   return (
   <div> 
     <div>  
-   <Button onClick={checkState}>Check state</Button>     
-
+   {/* <Button onClick={checkState}>Check state</Button>   
    <Button onClick={getPortfolioByUser}>Get portfolio</Button> 
-   <Button onClick={getWatchlistByUser}>Get watchlist</Button> 
+   <Button onClick={getWatchlistByUser}>Get watchlist</Button>  */}
 
     </div>
 
