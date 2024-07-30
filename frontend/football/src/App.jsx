@@ -22,8 +22,13 @@ function App() {
 
   let navigate = useNavigate()
 
-  const [users, setUsers] = useState([])
+  // current user data
   const [currentUser, setCurrentUser] = useState({})
+  const [currentPortfolio, setCurrentPortfolio] = useState({})
+  const [currentWatchList, setCurrentWatchList] = useState({})
+
+  // all data
+  const [users, setUsers] = useState([])
   const [players, setPlayers] = useState([])
   const [portfolios, setPortfolios] = useState([])
   const [watchlists, setWatchlists] = useState([])
@@ -89,6 +94,7 @@ function App() {
       let portfolioData = res.data
       console.log('Portfolio', portfolioData)
       console.log('Current user', currentUser)
+      setCurrentPortfolio(portfolioData) // this line ?
     } catch (error) {
       console.error('Error getting portfolios:', error)
     }
@@ -113,6 +119,7 @@ function App() {
       let watchlistData = res.data
       console.log('Watchlist', watchlistData)
       console.log('Current user', currentUser)
+      setCurrentWatchList(watchlistData) // this line ?
     } catch (error) {
       console.error('Error getting watchlists:', error)
     }
@@ -156,10 +163,10 @@ function App() {
       <DataContext.Provider value={{}}>
         {/* <Login /> */}
       <Routes>
-        <Route path='/' element={ <HomePage user={currentUser} showPlayer={showPlayer}/>}/>
-        <Route path='/portfolio' element={ <PortfolioPage user={currentUser} showPlayer={showPlayer}/>}/>
+        <Route path='/' element={ <HomePage user={currentUser} portfolio={currentPortfolio} watchlist={currentWatchList} showPlayer={showPlayer}/>}/>
+        <Route path='/portfolio' element={ <PortfolioPage user={currentUser} portfolio={currentPortfolio} watchlist={currentWatchList} showPlayer={showPlayer}/>}/>
         <Route path='/account' element={ <AccountPage user={currentUser}/>}/>
-        <Route path='/player/:espnID' element={<PlayerDetail user={currentUser}/>}/>
+        <Route path='/player/:espnID' element={<PlayerDetail user={currentUser} portfolio={currentPortfolio} watchlist={currentWatchList}/>}/>
       </Routes>   
       </DataContext.Provider>  
     </div>
