@@ -153,12 +153,13 @@ function App() {
     // console.log('Watchlists', watchlists)
     // console.log('Trades', trades)
     console.log('Current user', currentUser)
+    console.log('Current portfolio', currentPortfolio)
+    console.log('Current watchlist', currentWatchlist)
  }
 
  const showPlayer = (espnID) => {
   navigate(`/player/${espnID}`)
 }
-
 
   return (
   <div> 

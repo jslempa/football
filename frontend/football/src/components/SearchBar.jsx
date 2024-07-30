@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { useContext } from 'react'
 import { useNavigate, useNavigation } from 'react-router-dom'
+import { useContext } from 'react'
 import DataContext from '../DataContext'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
@@ -13,7 +13,7 @@ const SearchBar = (props) => {
 
     let navigate = useNavigate()
 
-    const { searchResults, setSearchResults} = useContext(DataContext)
+    const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer} = useContext(DataContext)
 
     const [searchQuery, setSearchQuery] = useState('')
     //const [searchResults, setSearchResults] = useState([])

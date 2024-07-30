@@ -5,9 +5,9 @@ import { useState, useEffect, useContext } from 'react'
 
 const WithdrawButton = (props) => {
 
-    console.log('Withdraw props', props)     
-
-    // const { currentUser, setCurrentUser} = useContext(DataContext)
+    console.log('Withdraw props', props)  
+    
+    const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer} = useContext(DataContext)
 
     // needs an input
     const withdrawFunds = async () => {

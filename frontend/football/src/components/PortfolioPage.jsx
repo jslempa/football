@@ -6,29 +6,9 @@ import { useState, useEffect, useContext } from 'react'
 
 const PortfolioPage = (props) => {
 
-    const [test, setTest] = useState(null)
-
     console.log('props', props)
-
-    let thisUserID = props.user[0]._id
-
-    console.log('current user ID', thisUserID)
-
-    // const [currentUser, setCurrentUser] = useState({
-    //     _id: "66a79ceaa9b2ead5607bc68b",
-    //     username: "jslempa",
-    //     password: "111111",
-    //     email: "fakeemail1@gmail.com",
-    //     image: "https://placehold.co/300/green/white",
-    //     isLoggedIn: true,
-    //     balance: 100,
-    // })
-
-
-
-
-
-  
+ 
+    const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer} = useContext(DataContext)
 
     return (
         <div className='portfolio'>

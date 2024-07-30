@@ -9,9 +9,8 @@ const HomePage = (props) => {
     //console.log('home props', props)
     //console.log('home', props.players)
 
-    const {} = useContext(DataContext)
+    const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer} = useContext(DataContext)
 
-    
 
     return (
         <div className='home'>
