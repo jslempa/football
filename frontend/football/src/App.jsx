@@ -11,20 +11,27 @@ import HomePage from './components/HomePage'
 import PortfolioPage from './components/PortfolioPage'
 import AccountPage from './components/AccountPage'
 import PlayerDetail from './components/PlayerDetail'
-import Button from 'react-bootstrap/Button'
 import PlayerList from './components/PlayerList'
+import Button from 'react-bootstrap/Button'
 
 
 function App() {
 
-  // all players loaded
-  // rookies set
+
   // set stats
 
   let navigate = useNavigate()
 
   // current user data, context
-  const [currentUser, setCurrentUser] = useState({})
+  const [currentUser, setCurrentUser] = useState({
+    _id: "66a79ceaa9b2ead5607bc68b",
+    username: "jslempa",
+    password: "111111",
+    email: "fakeemail1@gmail.com",
+    image: "https://placehold.co/300/green/white",
+    isLoggedIn: true,
+    balance: 100,
+  })
   const [currentPortfolio, setCurrentPortfolio] = useState({})
   const [currentWatchlist, setCurrentWatchlist] = useState({})
   const [playersInPorfolio, setPlayersInPortfolio] = useState([])
@@ -41,18 +48,17 @@ function App() {
   const [searchResults, setSearchResults] = useState([])
   const [selectedPlayer, setSelectedPlayer] = useState({})
 
+  // works!
   useEffect(() => {
-    
-    getCurrentUser()
+    console.log('on page load', currentUser)
     getCurrentPortfolio()
     getCurrentWatchlist()
-
     getUsers()    
     getPlayers()
     getPortfolios()
     getWatchlists()
     getTrades() 
-  }, [])  
+  }, [])
 
   const getUsers = async () => {
     try {
@@ -69,7 +75,7 @@ function App() {
       const res = await axios.get(`http://localhost:3001/users`) 
       let userData = res.data
       let loggedInUser = userData.filter(user => user.isLoggedIn === true)
-      console.log('Logged in user:', loggedInUser)
+      console.log('in getCurrentUser, user to be set:', loggedInUser)
       setCurrentUser(loggedInUser)
     } catch (error) {
       console.error('Error getting users:', error)
@@ -99,12 +105,12 @@ function App() {
   // Works!!!
   const getCurrentPortfolio = async () => {
     try {
-      let userID = currentUser[0].id
+      let userID = currentUser._id
       console.log('UserID', userID)
       const res = await axios.get(`http://localhost:3001/portfolios/user/${userID}`) 
       let portfolioData = res.data
-      console.log('Portfolio', portfolioData)
-      console.log('Current user', currentUser)
+      // console.log('Portfolio', portfolioData)
+      // console.log('Current user', currentUser)
       setCurrentPortfolio(portfolioData) // this line ?
     } catch (error) {
       console.error('Error getting portfolios:', error)
@@ -124,7 +130,7 @@ function App() {
   // Works!!!
   const getCurrentWatchlist = async () => {
     try {
-      let userID = currentUser[0].id
+      let userID = currentUser._id
       console.log('UserID', userID)
       const res = await axios.get(`http://localhost:3001/watchlists/user/${userID}`) 
       let watchlistData = res.data
@@ -157,7 +163,8 @@ function App() {
     console.log('Current watchlist', currentWatchlist)
  }
 
- const showPlayer = (espnID) => {
+// moved this into context from these routes: home, portfolio, playerlist
+const showPlayer = (espnID) => {
   navigate(`/player/${espnID}`)
 }
 
@@ -171,13 +178,13 @@ function App() {
     </div>
 
     <div className='app'> 
-      <DataContext.Provider value={{currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer}}>
+      <DataContext.Provider value={{currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer}}>
         {/* <Login /> */}
       <Routes>
-        <Route path='/' element={ <HomePage showPlayer={showPlayer}/>}/>
-        <Route path='/portfolio' element={ <PortfolioPage showPlayer={showPlayer}/>}/>
+        <Route path='/' element={ <HomePage />}/> 
+        <Route path='/portfolio' element={ <PortfolioPage />}/>
         <Route path='/account' element={ <AccountPage />}/>
-        <Route path='/players' element={<PlayerList showPlayer={showPlayer}/>}/>
+        <Route path='/players' element={<PlayerList />}/>
         <Route path='/players/:espnID' element={<PlayerDetail />}/>
       </Routes>   
       </DataContext.Provider>  

@@ -8,7 +8,7 @@ const SwitchUserButton = () => {
     
     return (
        
-        <Button id='switch-user' onClick={depositFunds}>Deposit</Button>
+        <Button id='switch-user' onClick={switchUser}>Switch user</Button>
 
     )
 }

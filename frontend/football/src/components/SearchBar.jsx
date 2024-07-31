@@ -6,10 +6,10 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import InputGroup from 'react-bootstrap/InputGroup'
 
-const SearchBar = (props) => {
+const SearchBar = () => {
 
-    console.log('search', props)
-    console.log('url test', window.location.pathname)
+    // console.log('search', props)
+    // console.log('url test', window.location.pathname)
 
     let navigate = useNavigate()
 
