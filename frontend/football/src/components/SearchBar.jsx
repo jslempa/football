@@ -26,8 +26,8 @@ const SearchBar = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log('submitted', searchQuery) //works
-        let allPlayers = props.players
-        let matchingPlayers = allPlayers.filter(player => player.name.toLowerCase().includes(searchQuery.toLowerCase()))
+        //let allPlayers = props.players
+        let matchingPlayers = players.filter(player => player.name.toLowerCase().includes(searchQuery.toLowerCase()))
         console.log('results', matchingPlayers) //works  
         setSearchResults(matchingPlayers)
         navigate('/players')

@@ -150,13 +150,13 @@ function App() {
 
   const checkState = () => {
     // console.log('Users', users)
-    console.log('Players', players)
     // console.log('Portfolios', portfolios)
     // console.log('Watchlists', watchlists)
     // console.log('Trades', trades)
     console.log('Current user', currentUser)
     console.log('Current portfolio', currentPortfolio)
     console.log('Current watchlist', currentWatchlist)
+    console.log('Players', players)
  }
 
 // moved this into context from these routes: home, portfolio, playerlist
