@@ -31,7 +31,8 @@ const PlayerDetail = () => {
 
     return (
         <div className='player-detail'>
-            <h1>{targetPlayer.name}</h1>
+            <img src={targetPlayer.image} alt={targetPlayer.name}/>
+            <h2>{targetPlayer.name}</h2>
             <AddToWatchlistButton player={targetPlayer}/>
 
             
