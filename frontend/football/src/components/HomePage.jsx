@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import DataContext from '../DataContext'
 import SearchBar from './SearchBar'
-import CarouselThing from './CarouselThing'
+import Carousel from './Carousel'
 import Nav from './Nav'
 
 const HomePage = (props) => {
@@ -16,9 +16,9 @@ const HomePage = (props) => {
         <div className='home'>
             <SearchBar players={props.players}/>
             {/* <h1>Hello {props.user[0].username}!</h1>   */}
-            {/* <CarouselThing />       */}
-            {/* <CarouselThing />  */}
-            {/* <CarouselThing />  */}
+            {/* <Carousel />       */}
+            {/* <Carousel />  */}
+            {/* <Carousel />  */}
             <Nav />
         </div>
     )

@@ -14,11 +14,7 @@ import PlayerDetail from './components/PlayerDetail'
 import PlayerList from './components/PlayerList'
 import Button from 'react-bootstrap/Button'
 
-
 function App() {
-
-
-  // set stats
 
   let navigate = useNavigate()
 
@@ -154,7 +150,7 @@ function App() {
 
   const checkState = () => {
     // console.log('Users', users)
-    // console.log('Players', players)
+    console.log('Players', players)
     // console.log('Portfolios', portfolios)
     // console.log('Watchlists', watchlists)
     // console.log('Trades', trades)
@@ -178,7 +174,7 @@ const showPlayer = (espnID) => {
     </div>
 
     <div className='app'> 
-      <DataContext.Provider value={{currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer}}>
+      <DataContext.Provider value={{currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players}}>
         {/* <Login /> */}
       <Routes>
         <Route path='/' element={ <HomePage />}/> 

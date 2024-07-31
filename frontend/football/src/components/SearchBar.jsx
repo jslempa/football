@@ -13,7 +13,7 @@ const SearchBar = () => {
 
     let navigate = useNavigate()
 
-    const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer} = useContext(DataContext)
+    const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players} = useContext(DataContext)
 
     const [searchQuery, setSearchQuery] = useState('')
     //const [searchResults, setSearchResults] = useState([])
@@ -36,27 +36,15 @@ const SearchBar = () => {
     return (
 
         <InputGroup className="mb-3">
-        <Form.Control
-          placeholder="Search players"
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-          value={searchQuery}
-          onChange={handleChange}
-                  />
-        <Button variant="outline-secondary" id="button-addon2" onClick={handleSubmit}>
-          Submit
-        </Button>
-      </InputGroup>
+          <Form.Control
+            placeholder="Search players"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+            value={searchQuery}
+            onChange={handleChange} />
+          <Button variant="outline-secondary" id="button-addon2" onClick={handleSubmit}>Submit</Button>
+        </InputGroup>
 
-
-
-
-    //     <div className='searchBar'>
-    //     <form onSubmit={handleSubmit}>
-    //          <input type='text' onChange={props.handleChange} value={props.searchQuery} />
-    //         <button type='submit'>Search</button>
-    //      </form>
-    //   </div>
     )
 }
 

@@ -1,16 +1,13 @@
 import { useContext } from 'react'
 import DataContext from '../DataContext'
-import Button from 'react-bootstrap/Button'
 
-const SwitchUserButton = () => {
+const Carousel = () => {
 
     const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players} = useContext(DataContext)
-    
-    return (
-       
-        <Button id='switch-user' onClick={switchUser}>Switch user</Button>
 
+    return (
+        <h2>Carousel</h2>
     )
 }
 
-export default SwitchUserButton
+export default Carousel
