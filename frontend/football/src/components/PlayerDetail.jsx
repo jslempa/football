@@ -13,7 +13,7 @@ const PlayerDetail = (props) => {
 
     return (
         <div className='player-detail'>
-            <h1>Player detail</h1>
+            <h1>Player: {selectedPlayer.name}</h1>
             <TestContext />
         </div>    
     )

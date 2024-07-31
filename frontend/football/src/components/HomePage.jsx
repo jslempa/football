@@ -19,7 +19,7 @@ const HomePage = (props) => {
             {/* <Carousel />       */}
             {/* <Carousel />  */}
             {/* <Carousel />  */}
-            <Nav />
+            {/* <Nav /> */}
         </div>
     )
 }

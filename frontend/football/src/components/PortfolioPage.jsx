@@ -4,18 +4,18 @@ import PlayerList from './PlayerList'
 import DataContext from '../DataContext'
 import { useState, useEffect, useContext } from 'react'
 
-const PortfolioPage = (props) => {
+const PortfolioPage = () => {
 
-    console.log('props', props)
+    //console.log('portfolio props', props)
  
     const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players} = useContext(DataContext)
 
     return (
         <div className='portfolio'>
-            <h1>{props.user[0].username}'s portfolio</h1>
+            <h1>{currentUser.username}'s portfolio</h1>
             <PlayerList />
             <PlayerList />
-            <Nav />
+            {/* <Nav /> */}
         </div>
     )
 }

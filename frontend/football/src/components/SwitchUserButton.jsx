@@ -6,6 +6,10 @@ const SwitchUserButton = () => {
 
     const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players} = useContext(DataContext)
     
+    const switchUser = () => {
+        console.log('user switched')
+    }
+    
     return (
        
         <Button id='switch-user' onClick={switchUser}>Switch user</Button>

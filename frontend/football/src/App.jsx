@@ -7,6 +7,7 @@ import './App.css'
 import axios from 'axios'
 import DataContext from './DataContext'
 import Login from './components/Login'
+import Nav from './components/Nav'
 import HomePage from './components/HomePage'
 import PortfolioPage from './components/PortfolioPage'
 import AccountPage from './components/AccountPage'
@@ -171,11 +172,14 @@ const showPlayer = (espnID) => {
    {/* <Button onClick={getPortfolioByUser}>Get portfolio</Button> 
    <Button onClick={getWatchlistByUser}>Get watchlist</Button>  */}
 
+    
+
     </div>
 
     <div className='app'> 
       <DataContext.Provider value={{currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players}}>
         {/* <Login /> */}
+      
       <Routes>
         <Route path='/' element={ <HomePage />}/> 
         <Route path='/portfolio' element={ <PortfolioPage />}/>
@@ -183,6 +187,7 @@ const showPlayer = (espnID) => {
         <Route path='/players' element={<PlayerList />}/>
         <Route path='/players/:espnID' element={<PlayerDetail />}/>
       </Routes>   
+      <Nav />  
       </DataContext.Provider>  
     </div>
     </div>   
