@@ -89,6 +89,8 @@ function App() {
     }
   }
 
+  // const getPlayersInPortfolio
+
   const getPortfolios = async () => {
     try {
       const res = await axios.get(`http://localhost:3001/portfolios`) 

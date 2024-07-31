@@ -1,7 +1,10 @@
 import axios from 'axios'
 import { useState, useEffect, useContext } from 'react'
 import DataContext from '../DataContext'
-import TestContext from './TestContext'
+import BuyButton from './BuyButton'
+import SellButton from './SellButton'
+import AddToWatchlistButton from './AddToWatchlistButton'
+import RemoveFromWatchlistButton from './RemoveFromWatchListButton'
 
 const PlayerDetail = () => {
 
@@ -29,7 +32,9 @@ const PlayerDetail = () => {
     return (
         <div className='player-detail'>
             <h1>{targetPlayer.name}</h1>
-            {/* <TestContext /> */}
+            <AddToWatchlistButton player={targetPlayer}/>
+
+            
         </div>    
     )
 }
