@@ -15,7 +15,6 @@ const PortfolioPage = () => {
             <h1>{currentUser.username}'s portfolio</h1>
             <PlayerList />
             <PlayerList />
-            {/* <Nav /> */}
         </div>
     )
 }

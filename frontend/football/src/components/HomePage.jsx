@@ -1,8 +1,7 @@
-import { useContext } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import DataContext from '../DataContext'
 import SearchBar from './SearchBar'
 import Carousel from './Carousel'
-import Nav from './Nav'
 
 const HomePage = (props) => {
 

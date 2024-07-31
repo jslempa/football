@@ -1,6 +1,5 @@
 import axios from 'axios'
-import { useState } from 'react'
-import { useContext } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import DataContext from '../DataContext'
 import TestContext from './TestContext'
 

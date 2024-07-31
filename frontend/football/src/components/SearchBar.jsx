@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
-import { useNavigate, useNavigation } from 'react-router-dom'
-import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useState, useEffect, useContext } from 'react'
 import DataContext from '../DataContext'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'

@@ -1,12 +1,11 @@
 import axios from 'axios'
-import Nav from './Nav'
 import DepositButton from './DepositButton'
 import WithdrawButton from './WithdrawButton'
 import SwitchUserButton from './SwitchUserButton'
 import DataContext from '../DataContext'
 import { useState, useEffect, useContext } from 'react'
 
-const AccountPage = (props) => {
+const AccountPage = () => {
 
   const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players} = useContext(DataContext)
 
@@ -23,8 +22,7 @@ const AccountPage = (props) => {
               <WithdrawButton />
               <SwitchUserButton />
             </div>
-         
-          {/* <Nav /> */}
+      
         </div>
       )
       

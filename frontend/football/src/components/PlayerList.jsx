@@ -1,13 +1,11 @@
 import axios from 'axios'
-import { useState, useContext } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Navigate } from 'react-router-dom'
 import DataContext from '../DataContext'
 import BuyButton from './BuyButton'
 import SellButton from './SellButton'
 import AddToWatchlistButton from './AddToWatchlistButton'
 import RemoveFromWatchlistButton from './RemoveFromWatchListButton'
-
 import Button from 'react-bootstrap/Button'
 
 const PlayerList = (props) => {
