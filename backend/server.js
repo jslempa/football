@@ -27,7 +27,7 @@ app.listen(PORT, () => {
 })
 
 app.get('/players', playerController.getAllPlayers)
-app.get('/players/espn/:espnID', playerController.getPlayerByEspnID)
+app.get('/players/:espnID', playerController.getPlayerByEspnID) //changed from '/players/espn/:espnID'
 app.get('/players/:id', playerController.getPlayerById)
 app.post('/players', playerController.createPlayer)
 app.put('/players/:espnID', playerController.updatePlayer)

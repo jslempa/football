@@ -8,15 +8,13 @@ import AddToWatchlistButton from './AddToWatchlistButton'
 import RemoveFromWatchlistButton from './RemoveFromWatchListButton'
 import Button from 'react-bootstrap/Button'
 
-const PlayerList = (props) => {
-
-    console.log('player list props', props)
+const PlayerList = () => {
 
     let navigate = useNavigate()
 
     const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players} = useContext(DataContext) 
 
-    console.log(searchResults[0])
+    //const showPlayerDetail = 
 
     return (
         <div className='player-list'>

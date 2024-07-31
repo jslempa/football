@@ -4,9 +4,7 @@ import DataContext from '../DataContext'
 import Button from 'react-bootstrap/Button'
 
 
-const SellButton = (props) => {
-
-    console.log('Sell', props)
+const SellButton = () => {
 
     const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players} = useContext(DataContext)
 

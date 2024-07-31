@@ -161,7 +161,8 @@ function App() {
  }
 
 // moved this into context from these routes: home, portfolio, playerlist
-const showPlayer = (espnID) => {
+const showPlayer = (targetPlayer, espnID) => {
+  setSelectedPlayer(targetPlayer)
   navigate(`/player/${espnID}`)
 }
 

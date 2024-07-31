@@ -7,8 +7,7 @@ import InputGroup from 'react-bootstrap/InputGroup'
 
 const SearchBar = () => {
 
-    // console.log('search', props)
-    // console.log('url test', window.location.pathname)
+    console.log('url test', window.location.pathname)
 
     let navigate = useNavigate()
 

@@ -3,9 +3,7 @@ import Button from 'react-bootstrap/Button'
 import DataContext from '../DataContext'
 import { useState, useEffect, useContext } from 'react'
 
-const WithdrawButton = (props) => {
-
-    console.log('Withdraw props', props)  
+const WithdrawButton = () => {
     
     const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players} = useContext(DataContext)
 

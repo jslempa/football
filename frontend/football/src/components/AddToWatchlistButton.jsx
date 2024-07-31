@@ -3,9 +3,7 @@ import { useState, useEffect, useContext } from 'react'
 import DataContext from '../DataContext'
 import Button from 'react-bootstrap/Button'
 
-const AddToWatchlistButton = (props) => {
-
-    console.log('Add list props', props)
+const AddToWatchlistButton = () => {
 
     const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players} = useContext(DataContext)
 

@@ -5,8 +5,6 @@ import DataContext from '../DataContext'
 import { useState, useEffect, useContext } from 'react'
 
 const PortfolioPage = () => {
-
-    //console.log('portfolio props', props)
  
     const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players} = useContext(DataContext)
 

@@ -3,9 +3,7 @@ import DataContext from '../DataContext'
 import { useState, useEffect, useContext } from 'react'
 import Button from 'react-bootstrap/Button'
 
-const DepositButton = (props) => {
-
-    console.log('Deposit props', props)
+const DepositButton = () => {
 
     const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players} = useContext(DataContext)
 
