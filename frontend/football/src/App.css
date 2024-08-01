@@ -5,14 +5,29 @@
   text-align: center;
 }
 
+body {
+  background-color: #181018;
+}
+
 img {
   max-width: 150px;
 }
 
 .player-card {
-  border: 2px solid black;
+  background-color: #04A246;
+  border: 2px solid #F5FFF9;
+  border-radius: 5%;
 }
 
+.player-detail {
+  background-color: #04A246;
+  border: 2px solid #F5FFF9;
+  border-radius: 5%;
+}
+
+.player-detail-button-container {
+  padding: 10px;
+}
 
 /* Color palettes */
 h6 {

@@ -32,10 +32,18 @@ const PlayerDetail = () => {
     return (
         <div className='player-detail'>
             <img src={targetPlayer.image} alt={targetPlayer.name}/>
-            <h2>{targetPlayer.name}</h2>
-            <AddToWatchlistButton player={targetPlayer}/>
-
-            
+            <div className='player-detail-info'>
+              <h2>{targetPlayer.name}</h2>
+              <h4>{targetPlayer.position}</h4>
+              <h4>{targetPlayer.team}</h4>
+              <h4>Price: ${targetPlayer.sharePrice}</h4>
+            </div>
+            <div className='player-detail-button-container'>
+              <BuyButton player={targetPlayer} />
+              <SellButton player={targetPlayer} />
+              <AddToWatchlistButton player={targetPlayer} />
+              <RemoveFromWatchlistButton player={targetPlayer} />
+            </div>
         </div>    
     )
 }

@@ -31,16 +31,16 @@ const PlayerList = () => {
                             <h5>{result.team}</h5>
                             <h5>${result.sharePrice}</h5>
                         </div>
-                        <div className='player-card-button-container'>
+                        {/* <div className='player-card-button-container'>
                             <BuyButton />
                             <SellButton />
                             <AddToWatchlistButton />
                             <RemoveFromWatchlistButton />
-                        </div>
+                        </div> */}
                     </div>
                     ))
                 ) : null
-            }          
+            }        
         </div>
     )
 }

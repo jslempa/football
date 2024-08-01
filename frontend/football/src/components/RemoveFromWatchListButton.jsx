@@ -26,7 +26,7 @@ const RemoveFromWatchlistButton = (props) => {
 
     return (
 
-        <Button id='remove-watchlist' onClick={removeFromWatchlist}>Stop watching</Button>
+        <Button id='remove-watchlist' onClick={removeFromWatchlist}>Unwatch</Button>
 
     )
 }
