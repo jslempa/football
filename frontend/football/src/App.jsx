@@ -47,7 +47,7 @@ function App() {
 
   // works!
   useEffect(() => {
-    console.log('on page load', currentUser)
+    console.log('currentUSer on page load', currentUser)
     getCurrentPortfolio()
     getCurrentWatchlist()
     getUsers()    
@@ -89,8 +89,6 @@ function App() {
     }
   }
 
-  // const getPlayersInPortfolio
-
   const getPortfolios = async () => {
     try {
       const res = await axios.get(`http://localhost:3001/portfolios`) 
@@ -105,7 +103,7 @@ function App() {
   const getCurrentPortfolio = async () => {
     try {
       let userID = currentUser._id
-      console.log('UserID', userID)
+      console.log('UserID portfolio', userID)
       const res = await axios.get(`http://localhost:3001/portfolios/user/${userID}`) 
       let portfolioData = res.data
       // console.log('Portfolio', portfolioData)
@@ -130,12 +128,13 @@ function App() {
   const getCurrentWatchlist = async () => {
     try {
       let userID = currentUser._id
-      console.log('UserID', userID)
+      console.log('UserID watchlist', userID)
       const res = await axios.get(`http://localhost:3001/watchlists/user/${userID}`) 
       let watchlistData = res.data
-      console.log('Watchlist', watchlistData)
+      console.log('Watchlist player ids', watchlistData[0].players)
       console.log('Current user', currentUser)
-      setCurrentWatchlist(watchlistData) // this line ?
+      setPlayersInWatchlist(watchlistData[0].players)
+      setCurrentWatchlist(watchlistData)
     } catch (error) {
       console.error('Error getting watchlists:', error)
     }

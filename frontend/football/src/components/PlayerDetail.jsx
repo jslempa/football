@@ -14,6 +14,9 @@ const PlayerDetail = () => {
 
     const [targetPlayer, setTargetPlayer] = useState({})
 
+    console.log('Watchlist player ids', playersInWatchlist)
+    console.log('Target player', targetPlayer)
+
     useEffect(() => {
         getTargetPlayer()
     }, [])
@@ -29,6 +32,35 @@ const PlayerDetail = () => {
       } 
     }
 
+    const renderButtons = () => {
+      if (playersInWatchlist.includes(targetPlayer._id)) {
+        return (
+          <div className='player-detail-button-container'>
+            <BuyButton player={targetPlayer} />
+            <RemoveFromWatchlistButton player={targetPlayer} />
+          </div>
+        )
+      } else if (playersInPorfolio.includes(targetPlayer._id)) {
+        return (
+          <div className='player-detail-button-container'>
+          <BuyButton player={targetPlayer} />
+          <SellButton player={targetPlayer} />
+        </div>
+        )
+      } else {
+        return (
+          <div className='player-detail-button-container'>
+          <BuyButton player={targetPlayer} />
+          <AddToWatchlistButton player={targetPlayer} />
+        </div>
+        )
+      }
+    }
+
+
+    // <SellButton player={targetPlayer} />
+    // <AddToWatchlistButton player={targetPlayer} />
+
     return (
         <div className='player-detail'>
             <img src={targetPlayer.image} alt={targetPlayer.name}/>
@@ -39,10 +71,7 @@ const PlayerDetail = () => {
               <h4>Price: ${targetPlayer.sharePrice}</h4>
             </div>
             <div className='player-detail-button-container'>
-              <BuyButton player={targetPlayer} />
-              <SellButton player={targetPlayer} />
-              <AddToWatchlistButton player={targetPlayer} />
-              <RemoveFromWatchlistButton player={targetPlayer} />
+              {renderButtons()}
             </div>
         </div>    
     )
