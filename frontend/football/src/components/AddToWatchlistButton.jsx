@@ -53,19 +53,50 @@ const AddToWatchlistButton = (props) => {
     //         })
     // }
 
+
     const addToWatchlist = async () => {
-        if (currentWatchlist.length > 0) {
-            const res = await axios.put(`http://localhost:3001/watchlists/user/${currentUser._id}`, {
-                ...currentWatchlist,
-                players: props.player
-            })
-        } else {
-            const res = await axios.put(`http://localhost:3001/watchlists/user/${currentUser._id}`, {
-                ...currentWatchlist,
-                players: players.push(props.player)
-            })
-        }
+      try {
+          const updatedPlayers = [...currentWatchlist[0].players, props.player._id]
+  
+          const res = await axios.put(`http://localhost:3001/watchlists/${currentWatchlist[0]._id}`, {
+              ...currentWatchlist[0],
+              players: updatedPlayers
+          })  
+          console.log('Watchlist updated:', res.data)
+      } catch (error) {
+          console.error('Error updating watchlist:', error)
+      }
     }
+  
+
+
+    // const addToWatchlist = async () => {
+
+    //   console.log('current watchlist', currentWatchlist)
+    //   console.log('player id', props.player._id)
+        
+    //         const res = await axios.put(`http://localhost:3001/watchlists/${currentWatchlist[0]._id}`, {
+    //             ...currentWatchlist[0],
+    //             players: players.push(props.player._id)
+    //         })   
+    // }
+
+
+
+    // SAVE
+    // const addToWatchlist = async () => {
+    //     if (currentWatchlist.length > 0) {
+    //         const res = await axios.put(`http://localhost:3001/watchlists/user/${currentUser._id}`, {
+    //             ...currentWatchlist,
+    //             players: props.player
+    //         })
+    //     } else {
+    //         const res = await axios.put(`http://localhost:3001/watchlists/user/${currentUser._id}`, {
+    //             ...currentWatchlist,
+    //             players: players.push(props.player)
+    //         })
+    //     }
+    // }
 
     const makeRookies = async () => {
         await rookies.forEach(rookie => {
