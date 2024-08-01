@@ -57,10 +57,6 @@ const PlayerDetail = () => {
       }
     }
 
-
-    // <SellButton player={targetPlayer} />
-    // <AddToWatchlistButton player={targetPlayer} />
-
     return (
         <div className='player-detail'>
             <img src={targetPlayer.image} alt={targetPlayer.name}/>

@@ -13,16 +13,65 @@ const RemoveFromWatchlistButton = (props) => {
 
     const removeFromWatchlist = async () => {
         try {
-            const updatedPlayers = [...currentWatchlist[0].players, props.player._id]  
-            const res = await axios.put(`http://localhost:3001/watchlists/${currentWatchlist[0]._id}`, {
+
+            // const testList = ['1a', '1b', '1c', '1d']
+
+            // const testPlayer = {
+            //     name: 'Cooper Kupp',
+            //     playerID: '1c'
+            // }
+
+            // const updatedTestList = testList.filter(item)
+
+            // console.log('players before', currentWatchlist[0].players)
+
+            // console.log('this player id', props.player._id)
+
+            // if (currentWatchlist[0].players.includes(props.player._id)) {
+            //     console.log('player is in watchlist')
+            // } else {
+            //     console.log('player not found')
+            // }
+
+            const updatedPlayers = currentWatchlist[0].players.filter(current => current !== props.player._id)
+
+            console.log(updatedPlayers)
+
+            console.log('players after', updatedPlayers)
+    
+            const updatedWatchlist = {
                 ...currentWatchlist[0],
                 players: updatedPlayers
-            })  
+            }
+    
+            const res = await axios.put(`http://localhost:3001/watchlists/${currentWatchlist[0]._id}`, updatedWatchlist)
+    
             console.log('Watchlist updated:', res.data)
+
         } catch (error) {
             console.error('Error updating watchlist:', error)
         }
     }
+    
+
+
+
+
+
+    // const removeFromWatchlist = async () => {
+    //     try {
+    //         console.log('players before', currentWatchlist[0].players)
+    //         const updatedPlayers = currentWatchlist[0].players.filter(player => player._id !== props.player._id) 
+    //         console.log('players after', updatedPlayers)
+    //         const res = await axios.put(`http://localhost:3001/watchlists/${currentWatchlist[0]._id}`, {
+    //             ...currentWatchlist[0],
+    //             players: updatedPlayers
+    //         })  
+    //         console.log('Watchlist updated:', res.data)
+    //     } catch (error) {
+    //         console.error('Error updating watchlist:', error)
+    //     }        
+    // }
 
     return (
 

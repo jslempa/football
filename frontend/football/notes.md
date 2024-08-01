@@ -33,3 +33,5 @@ const comment = new Comment(req.body)
 
 - useContext or local storage to remember user info
     - Load users not hard code
+
+- buttons on player list in addition to player detail    
