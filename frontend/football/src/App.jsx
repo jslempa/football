@@ -31,8 +31,12 @@ function App() {
   })
   const [currentPortfolio, setCurrentPortfolio] = useState({}) //portfolio object
   const [currentWatchlist, setCurrentWatchlist] = useState({}) //watchlist object
+  const [idsInPorfolio, setIdsInPortfolio] = useState([]) //array of strings
+  const [idsInWatchlist, setIdsInWatchlist] = useState([]) //array of strings
   const [playersInPorfolio, setPlayersInPortfolio] = useState([]) //array of player objects
   const [playersInWatchlist, setPlayersInWatchlist] = useState([]) //array of player objects
+
+  idsInPorfolio, setIdsInPortfolio, idsInWatchlist, setIdsInWatchlist
 
   // all data
   const [users, setUsers] = useState([])
@@ -131,7 +135,7 @@ function App() {
       let portfolioData = res.data
       // console.log('Portfolio', portfolioData)
       // console.log('Current user', currentUser)
-      setPlayersInPortfolio(portfolioData.players) //player id strings not player objs
+      setIdsInPortfolio(portfolioData.players) //player id strings not player objs
       setCurrentPortfolio(portfolioData) // this line ?
     } catch (error) {
       console.error('Error getting portfolios:', error)
@@ -158,7 +162,7 @@ function App() {
       let watchlistData = res.data
       // console.log('Watchlist player ids', watchlistData[0].players)
       // console.log('Current user', currentUser)
-      setPlayersInWatchlist(watchlistData.players) //player id strings not player objs  // COME BACK HERE IF WATCHLIST DOESN'T WORK
+      setIdsInWatchlist(watchlistData.players) //player id strings not player objs  // COME BACK HERE IF WATCHLIST DOESN'T WORK
       setCurrentWatchlist(watchlistData)
     } catch (error) {
       console.error('Error getting watchlists:', error)
