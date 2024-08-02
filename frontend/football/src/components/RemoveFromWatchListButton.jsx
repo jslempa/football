@@ -51,6 +51,7 @@ const RemoveFromWatchlistButton = (props) => {
         } catch (error) {
             console.error('Error updating watchlist:', error)
         }
+        window.location.reload()
     }
     
 
