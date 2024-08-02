@@ -14,7 +14,31 @@ const PlayerList = () => {
 
     const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players} = useContext(DataContext) 
 
-    //const showPlayerDetail = 
+    const renderPlayers = () => {
+        if (playersInWatchlist.includes(targetPlayer._id)) {
+          return (
+            <div className='player-detail-button-container'>
+              <BuyButton player={targetPlayer} />
+              <RemoveFromWatchlistButton player={targetPlayer} />
+            </div>
+          )
+        } else if (playersInPorfolio.includes(targetPlayer._id)) {
+          return (
+            <div className='player-detail-button-container'>
+            <BuyButton player={targetPlayer} />
+            <SellButton player={targetPlayer} />
+          </div>
+          )
+        } else {
+          return (
+            <div className='player-detail-button-container'>
+            <BuyButton player={targetPlayer} />
+            <AddToWatchlistButton player={targetPlayer} />
+          </div>
+          )
+        }
+      }
+    
 
     return (
         <div className='player-list'>
