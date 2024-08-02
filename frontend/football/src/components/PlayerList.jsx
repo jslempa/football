@@ -84,8 +84,7 @@ const PlayerList = (props) => {
     return (
         <div className='player-list'>
             {
-             
-                    searchResults.map((result, index) => (
+              searchResults.map((result, index) => (
 
                     <div className='player-card' key={index} onClick={()=>navigate(`/players/${result.espnID}`)}>
                         <div className='player-card-img'>

@@ -1,6 +1,8 @@
 import axios from 'axios'
 import Nav from './Nav'
 import PlayerList from './PlayerList'
+import PortfolioList from './PortfolioList'
+import WatchlistList from './WatchlistList'
 import DataContext from '../DataContext'
 import { useState, useEffect, useContext } from 'react'
 import Tab from 'react-bootstrap/Tab'
@@ -16,22 +18,14 @@ const PortfolioPage = () => {
 
     return (
 
-        <div className='portfolio'>
-
-        <Tabs
-            defaultActiveKey="portfolio-page"
-            id="justify-tab"
-            className="mb-3"
-            justify>
-            <Tab eventKey="portfolio" title="Portfolio">
-                <PlayerList players={playersInPorfolio} porfolio={true}/>    
-            </Tab>
-            <Tab eventKey="watchlist" title="Watchlist">
-                <PlayerList players={playersInWatchlist} portfolio={false}/>
-            </Tab>
-        </Tabs>
-            
-        </div>
+        <div className='portfolio-page'>
+            <div className='portfolio'>
+                <PortfolioList />
+            </div>
+            <div className='watchlist'>
+                <WatchlistList />
+            </div>
+        </div>        
 
     )
 }

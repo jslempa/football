@@ -1,3 +1,18 @@
+{/* 
+        <Tabs
+            defaultActiveKey="portfolio-page"
+            id="justify-tab"
+            className="mb-3"
+            justify>
+            <Tab eventKey="portfolio" title="Portfolio">
+                <PlayerList players={playersInPorfolio} portfolio={true}/>    
+            </Tab>
+            <Tab eventKey="watchlist" title="Watchlist">
+                <PlayerList players={playersInWatchlist} portfolio={false}/>
+            </Tab>
+        </Tabs> */}
+
+
 //   const [seasonStats, setSeasonStats] = useState([])
 
 //   const [players, setPlayers] = useState([])
