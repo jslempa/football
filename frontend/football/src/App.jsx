@@ -47,9 +47,10 @@ function App() {
 
   // works!
   useEffect(() => {
-    console.log('currentUSer on page load', currentUser)
+    console.log('current user on page load', currentUser)
     getCurrentPortfolio()
     getCurrentWatchlist()
+
     getUsers()    
     getPlayers()
     getPortfolios()
@@ -82,8 +83,22 @@ function App() {
    const getPlayers = async () => {
     try {
       const res = await axios.get(`http://localhost:3001/players`) 
+      console.log('all player data on page load', res.data)
       let playerData = res.data
+
+      // filter players in current portfolio
+
+      // console.log(currentWatchlist) // empty object
+
+      // console.log(currentWatchlist[0].players) // error getting [0].anything on page load
+
+      // filter players in current watchlist
+
+
+
       setPlayers(playerData)
+      //setPlayersInPortfolio()
+      //setPlayersInWatchlist()
     } catch (error) {
       console.error('Error getting players:', error)
     }
@@ -103,11 +118,12 @@ function App() {
   const getCurrentPortfolio = async () => {
     try {
       let userID = currentUser._id
-      console.log('UserID portfolio', userID)
       const res = await axios.get(`http://localhost:3001/portfolios/user/${userID}`) 
+      console.log('current porfolio data on page load', res.data)
       let portfolioData = res.data
       // console.log('Portfolio', portfolioData)
       // console.log('Current user', currentUser)
+      setPlayersInPortfolio(portfolioData.players) //player id strings not player objs
       setCurrentPortfolio(portfolioData) // this line ?
     } catch (error) {
       console.error('Error getting portfolios:', error)
@@ -128,12 +144,13 @@ function App() {
   const getCurrentWatchlist = async () => {
     try {
       let userID = currentUser._id
-      console.log('UserID watchlist', userID)
+      // console.log('UserID watchlist', userID)
       const res = await axios.get(`http://localhost:3001/watchlists/user/${userID}`) 
+      console.log('current watchlist data on page load', res.data)
       let watchlistData = res.data
-      console.log('Watchlist player ids', watchlistData[0].players)
-      console.log('Current user', currentUser)
-      setPlayersInWatchlist(watchlistData[0].players)
+      // console.log('Watchlist player ids', watchlistData[0].players)
+      // console.log('Current user', currentUser)
+      setPlayersInWatchlist(watchlistData.players) //player id strings not player objs  // COME BACK HERE IF WATCHLIST DOESN'T WORK
       setCurrentWatchlist(watchlistData)
     } catch (error) {
       console.error('Error getting watchlists:', error)
