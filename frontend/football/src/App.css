@@ -9,6 +9,10 @@ body {
   background-color: #181018;
 }
 
+h1, h2, h3, h4, h5 {
+  color: #F5FFF9;
+}
+
 img {
   max-width: 150px;
 }

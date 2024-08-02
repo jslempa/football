@@ -8,7 +8,6 @@ const WatchlistList = () => {
 
     console.log('Watchlist list', playersInWatchlist)
 
-    // NEED TO ADD ONCLICK
     // change classNames?
 
     return (
@@ -18,8 +17,16 @@ const WatchlistList = () => {
             {
                 playersInWatchlist.length > 0 ? (                
                     playersInWatchlist.map((player) => (
-                        <div className='player-list-card' key={player._id}>
-                            <h3 className='player-data'>{player.name}</h3>
+                        <div className='player-list-card' key={player._id} onClick={()=>navigate(`/players/${player.espnID}`)}>
+                            <div className='player-list-img'>
+                                <img src={player.image} alt={player.name}/>  
+                            </div>
+                            <div className='player-list-data'>
+                                <h3>{player.name}</h3>
+                                <h5>{player.position}</h5>
+                                <h5>{player.team}</h5>
+                                <h5>${player.sharePrice}</h5>
+                            </div>  
                         </div>
                     ))
                 ) : <h3>Not watching any players</h3>

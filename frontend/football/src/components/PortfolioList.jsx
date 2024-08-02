@@ -8,7 +8,6 @@ const PortfolioList = () => {
 
     console.log('Portfolio list', playersInPorfolio)
 
-    // NEED TO ADD ONCLICK
     // change classNames?
     
     return (
@@ -18,14 +17,22 @@ const PortfolioList = () => {
             {
                 playersInPorfolio.length > 0 ? (                
                     playersInPorfolio.map((player) => (
-                        <div className='player-list-card' key={player._id}>
-                            <h3 className='player-data'>{player.name}</h3>
+                        <div className='player-list-card' key={player._id} onClick={()=>navigate(`/players/${player.espnID}`)}>
+                            <div className='player-list-img'>
+                                <img src={player.image} alt={player.name}/>  
+                            </div>
+                            <div className='player-list-data'>
+                                <h3>{player.name}</h3>
+                                <h5>{player.position}</h5>
+                                <h5>{player.team}</h5>
+                                <h5>${player.sharePrice}</h5>
+                            </div>
                         </div>
                     ))
                 ) : <h3>No players in portfolio</h3>
             }       
         </div>
-        
+
     )
 }
 
