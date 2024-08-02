@@ -14,7 +14,7 @@ const PlayerDetail = () => {
 
     const [targetPlayer, setTargetPlayer] = useState({})
 
-    console.log('Watchlist player ids', playersInWatchlist)
+    console.log('Watchlist player ids', idsInWatchlist)
     console.log('Target player', targetPlayer)
 
     useEffect(() => {
@@ -33,14 +33,14 @@ const PlayerDetail = () => {
     }
 
     const renderButtons = () => {
-      if (playersInWatchlist.includes(targetPlayer._id)) {
+      if (idsInWatchlist.includes(targetPlayer._id)) {
         return (
           <div className='player-detail-button-container'>
             <BuyButton player={targetPlayer} />
             <RemoveFromWatchlistButton player={targetPlayer} />
           </div>
         )
-      } else if (playersInPorfolio.includes(targetPlayer._id)) {
+      } else if (idsInPorfolio.includes(targetPlayer._id)) {
         return (
           <div className='player-detail-button-container'>
           <BuyButton player={targetPlayer} />

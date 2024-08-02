@@ -26,7 +26,7 @@ const PlayerList = (props) => {
             {
               searchResults.map((result, index) => (
 
-                <div className='player-card' key={index} onClick={()    =>navigate(`/players/${result.espnID}`)}>
+                <div className='player-card' key={index} onClick={()=>navigate(`/players/${result.espnID}`)}>
                     <div className='player-card-img'>
                         <img src={result.image} alt={result.name}/>  
                     </div>

@@ -36,8 +36,6 @@ function App() {
   const [playersInPorfolio, setPlayersInPortfolio] = useState([]) //array of player objects
   const [playersInWatchlist, setPlayersInWatchlist] = useState([]) //array of player objects
 
-  idsInPorfolio, setIdsInPortfolio, idsInWatchlist, setIdsInWatchlist
-
   // all data
   const [users, setUsers] = useState([])
   const [players, setPlayers] = useState([])
@@ -160,9 +158,9 @@ function App() {
       const res = await axios.get(`http://localhost:3001/watchlists/user/${userID}`) 
       console.log('current watchlist data on page load', res.data)
       let watchlistData = res.data
-      // console.log('Watchlist player ids', watchlistData[0].players)
+      console.log('LOOK AT ME Watchlist player ids', watchlistData[0].players)
       // console.log('Current user', currentUser)
-      setIdsInWatchlist(watchlistData.players) //player id strings not player objs  // COME BACK HERE IF WATCHLIST DOESN'T WORK
+      setIdsInWatchlist(watchlistData[0].players) //player id strings not player objs  // COME BACK HERE IF WATCHLIST DOESN'T WORK
       setCurrentWatchlist(watchlistData)
     } catch (error) {
       console.error('Error getting watchlists:', error)
@@ -208,7 +206,7 @@ const showPlayer = (targetPlayer, espnID) => {
     </div>
 
     <div className='app'> 
-      <DataContext.Provider value={{currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players}}>
+      <DataContext.Provider value={{currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, idsInPorfolio, setIdsInPortfolio, idsInWatchlist, setIdsInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players}}>
         {/* <Login /> */}
       
       <Routes>
