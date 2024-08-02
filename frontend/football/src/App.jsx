@@ -29,10 +29,10 @@ function App() {
     isLoggedIn: true,
     balance: 100,
   })
-  const [currentPortfolio, setCurrentPortfolio] = useState({})
-  const [currentWatchlist, setCurrentWatchlist] = useState({})
-  const [playersInPorfolio, setPlayersInPortfolio] = useState([])
-  const [playersInWatchlist, setPlayersInWatchlist] = useState([])
+  const [currentPortfolio, setCurrentPortfolio] = useState({}) //portfolio object
+  const [currentWatchlist, setCurrentWatchlist] = useState({}) //watchlist object
+  const [playersInPorfolio, setPlayersInPortfolio] = useState([]) //array of player objects
+  const [playersInWatchlist, setPlayersInWatchlist] = useState([]) //array of player objects
 
   // all data
   const [users, setUsers] = useState([])
@@ -57,6 +57,10 @@ function App() {
     getWatchlists()
     getTrades() 
   }, [])
+
+  useEffect(() => {
+    filterPlayers()
+  }, [players])
 
   const getUsers = async () => {
     try {
@@ -83,24 +87,28 @@ function App() {
    const getPlayers = async () => {
     try {
       const res = await axios.get(`http://localhost:3001/players`) 
-      console.log('all player data on page load', res.data)
+      // console.log('all player data on page load', res.data)
       let playerData = res.data
-
-      // filter players in current portfolio
-
-      // console.log(currentWatchlist) // empty object
-
-      // console.log(currentWatchlist[0].players) // error getting [0].anything on page load
-
-      // filter players in current watchlist
-
-
-
       setPlayers(playerData)
-      //setPlayersInPortfolio()
-      //setPlayersInWatchlist()
     } catch (error) {
       console.error('Error getting players:', error)
+    }
+  }
+
+  const filterPlayers = () => {
+    console.log('current portfolio', currentPortfolio)
+    console.log('current watchlist', currentWatchlist)
+    //console.log('filter, all players', players)
+    if (currentPortfolio.length > 0) {
+      let inPortfolio = players.filter(player => currentPortfolio[0].players.includes(player._id))
+      //console.log('filter portfolio test', inPortfolio)
+      setPlayersInPortfolio(inPortfolio)      
+    }
+    if (currentWatchlist.length > 0) {
+       // watchlist filter works
+      let inWatchlist = players.filter(player => currentWatchlist[0].players.includes(player._id))
+      //console.log('filter watchlist test', inWatchlist)    
+      setPlayersInWatchlist(inWatchlist)
     }
   }
 
