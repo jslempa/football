@@ -14,12 +14,13 @@ const PlayerDetail = () => {
 
     const [targetPlayer, setTargetPlayer] = useState({})
 
+    console.log('Selected player', selectedPlayer)
+    console.log('Selected player id', selectedPlayer._id)
     console.log('Watchlist player ids', idsInWatchlist)
-    console.log('Target player', targetPlayer)
 
-    useEffect(() => {
-        getTargetPlayer()
-    }, [])
+    // useEffect(() => {
+    //     getTargetPlayer()
+    // }, [])
    
     const getTargetPlayer = async () => {
       try {
@@ -33,25 +34,29 @@ const PlayerDetail = () => {
     }
 
     const renderButtons = () => {
-      if (idsInWatchlist.includes(targetPlayer._id)) {
+
+      console.log('Selected player inside renderButtons', selectedPlayer)
+      console.log('ids in watchlist inside renderButtons', idsInWatchlist)
+
+      if (idsInWatchlist.includes(selectedPlayer._id)) {
         return (
           <div className='player-detail-button-container'>
-            <BuyButton player={targetPlayer} />
-            <RemoveFromWatchlistButton player={targetPlayer} />
+            <BuyButton />
+            <RemoveFromWatchlistButton />
           </div>
         )
-      } else if (idsInPorfolio.includes(targetPlayer._id)) {
+      } else if (idsInPorfolio.includes(selectedPlayer._id)) {
         return (
           <div className='player-detail-button-container'>
-          <BuyButton player={targetPlayer} />
-          <SellButton player={targetPlayer} />
+          <BuyButton />
+          <SellButton />
         </div>
         )
       } else {
         return (
           <div className='player-detail-button-container'>
-          <BuyButton player={targetPlayer} />
-          <AddToWatchlistButton player={targetPlayer} />
+          <BuyButton />
+          <AddToWatchlistButton />
         </div>
         )
       }
@@ -59,12 +64,12 @@ const PlayerDetail = () => {
 
     return (
         <div className='player-detail'>
-            <img src={targetPlayer.image} alt={targetPlayer.name}/>
+            <img src={selectedPlayer.image} alt={selectedPlayer.name}/>
             <div className='player-detail-info'>
-              <h2>{targetPlayer.name}</h2>
-              <h4>{targetPlayer.position}</h4>
-              <h4>{targetPlayer.team}</h4>
-              <h4>Price: ${targetPlayer.sharePrice}</h4>
+              <h2>{selectedPlayer.name}</h2>
+              <h4>{selectedPlayer.position}</h4>
+              <h4>{selectedPlayer.team}</h4>
+              <h4>Price: ${selectedPlayer.sharePrice}</h4>
             </div>
             <div className='player-detail-button-container'>
               {renderButtons()}

@@ -22,7 +22,7 @@ const PlayerList = () => {
             {
                 searchResults.length > 0 ? (
                     searchResults.map((player) => (
-                        <div className='player-card' key={player._id} onClick={()=>navigate(`/players/${player.espnID}`)}>
+                        <div className='player-card' key={player._id} onClick={()=>showPlayer(player, player.espnID)}>
                             <div className='player-list-img'>
                                 <img src={player.image} alt={player.name}/>  
                             </div>
