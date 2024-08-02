@@ -44,8 +44,8 @@ function App() {
   const [trades, setTrades] = useState([])
 
   // search data, context
-  const [searchResults, setSearchResults] = useState([])
-  const [selectedPlayer, setSelectedPlayer] = useState({})
+  const [searchResults, setSearchResults] = useState([]) //array of objects
+  const [selectedPlayer, setSelectedPlayer] = useState({}) //player object
 
   // works!
   useEffect(() => {
@@ -98,8 +98,8 @@ function App() {
   }
 
   const filterPlayers = () => {
-    console.log('current portfolio', currentPortfolio)
-    console.log('current watchlist', currentWatchlist)
+    //console.log('current portfolio', currentPortfolio)
+    //console.log('current watchlist', currentWatchlist)
     //console.log('filter, all players', players)
     if (currentPortfolio.length > 0) {
       let inPortfolio = players.filter(player => currentPortfolio[0].players.includes(player._id))
@@ -129,7 +129,7 @@ function App() {
     try {
       let userID = currentUser._id
       const res = await axios.get(`http://localhost:3001/portfolios/user/${userID}`) 
-      console.log('current porfolio data on page load', res.data)
+      //console.log('current porfolio data on page load', res.data)
       let portfolioData = res.data
       // console.log('Portfolio', portfolioData)
       // console.log('Current user', currentUser)
@@ -156,9 +156,9 @@ function App() {
       let userID = currentUser._id
       // console.log('UserID watchlist', userID)
       const res = await axios.get(`http://localhost:3001/watchlists/user/${userID}`) 
-      console.log('current watchlist data on page load', res.data)
+      // console.log('current watchlist data on page load', res.data)
       let watchlistData = res.data
-      console.log('LOOK AT ME Watchlist player ids', watchlistData[0].players)
+      // console.log('LOOK AT ME Watchlist player ids', watchlistData[0].players)
       // console.log('Current user', currentUser)
       setIdsInWatchlist(watchlistData[0].players) //player id strings not player objs  // COME BACK HERE IF WATCHLIST DOESN'T WORK
       setCurrentWatchlist(watchlistData)
@@ -177,15 +177,22 @@ function App() {
     }
   }
 
+  // 9 main things are loading! (portfolio tbd) 
   const checkState = () => {
     // console.log('Users', users)
     // console.log('Portfolios', portfolios)
     // console.log('Watchlists', watchlists)
     // console.log('Trades', trades)
-    console.log('Current user', currentUser)
-    console.log('Current portfolio', currentPortfolio)
-    console.log('Current watchlist', currentWatchlist)
-    console.log('Players', players)
+    // console.log('Players', players)
+    console.log('1. Current user', currentUser)
+    console.log('2. Current portfolio', currentPortfolio)
+    console.log('3. Current watchlist', currentWatchlist)
+    console.log('4. Players in portfolio', playersInPorfolio)
+    console.log('5. Players in watchlist', playersInWatchlist)
+    console.log('6. Portfolio player ids', idsInPorfolio)
+    console.log('7. Watchlist player ids', idsInWatchlist)
+    console.log('8. Search results', searchResults)
+    console.log('9. Selected player', selectedPlayer)
  }
 
 // moved this into context from these routes: home, portfolio, playerlist
