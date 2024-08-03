@@ -165,8 +165,7 @@ function App() {
       console.error('Error getting trades:', error)
     }
   }
-
-  // 9 main things are loading! (portfolio tbd) 
+ 
   const checkState = () => {
     console.log('Users', users)
     console.log('Portfolios', portfolios)
