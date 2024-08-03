@@ -10,12 +10,14 @@ const AccountPage = () => {
   const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPortfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, idsInPorfolio, setIdsInPortfolio, idsInWatchlist, setIdsInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players} = useContext(DataContext)
 
   useEffect(() => {
-      if (window.location.pathname != '/') {
+    if (window.location.pathname === '/') {
+        document.body.style.backgroundImage = 'url(https://static.clubs.nfl.com/image/private/t_new_photo_album/jets/qhsgjtl4udb0brklchxg.jpg)'
+        document.body.style.backgroundSize = 'cover'
+        document.body.style.backgroundPosition = '60% center'
+    } else {
         document.body.style.backgroundImage = ''
         document.body.style.backgroundColor = '#04A246'
-      } else {
-        console.log('hi')
-      }
+    }
   }, [])
 
     //view trade/transaction history?

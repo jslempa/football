@@ -8,7 +8,16 @@ const PortfolioList = () => {
 
     console.log('Portfolio list', playersInPorfolio)
 
-    // change classNames?
+    useEffect(() => {
+        if (window.location.pathname === '/') {
+            document.body.style.backgroundImage = 'url(https://static.clubs.nfl.com/image/private/t_new_photo_album/jets/qhsgjtl4udb0brklchxg.jpg)'
+            document.body.style.backgroundSize = 'cover'
+            document.body.style.backgroundPosition = '60% center'
+        } else {
+            document.body.style.backgroundImage = ''
+            document.body.style.backgroundColor = '#04A246'
+        }
+      }, [])
     
     return (
 

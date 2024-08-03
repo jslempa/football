@@ -21,6 +21,14 @@ const PlayerDetail = () => {
 
     useEffect(() => {
         getTargetPlayer()
+        if (window.location.pathname === '/') {
+          document.body.style.backgroundImage = 'url(https://static.clubs.nfl.com/image/private/t_new_photo_album/jets/qhsgjtl4udb0brklchxg.jpg)'
+          document.body.style.backgroundSize = 'cover'
+          document.body.style.backgroundPosition = '60% center'
+      } else {
+          document.body.style.backgroundImage = ''
+          document.body.style.backgroundColor = '#04A246'
+      }
     }, [])
    
     const getTargetPlayer = async () => {
@@ -67,12 +75,14 @@ const PlayerDetail = () => {
 
     return (
         <div className='player-detail'>
-            <img src={targetPlayer.image} alt={targetPlayer.name}/>
+            <div className='player-detail-img'>
+                <img src={targetPlayer.image} alt={targetPlayer.name}/>
+            </div>  
             <div className='player-detail-info'>
-              <h2>{targetPlayer.name}</h2>
-              <h4>{targetPlayer.position}</h4>
-              <h4>{targetPlayer.team}</h4>
-              <h4>Price: ${targetPlayer.sharePrice}</h4>
+                <h2>{targetPlayer.name}</h2>
+                <h4>{targetPlayer.position}</h4>
+                <h4>{targetPlayer.team}</h4>
+                <h4>Price: ${targetPlayer.sharePrice}</h4>
             </div>
             <div className='player-detail-button-container'>
               {renderButtons()}
