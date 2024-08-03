@@ -1,4 +1,4 @@
-# Football
+# Football Stock Exchange
 
 
 ## Component Hierarchy Diagram
@@ -8,6 +8,7 @@
 ![entity relationship diagram](FootballERD.drawio.png)
 
 ## Wireframes
+![wireframes](Capstone_wireframes.png)
 
 
 ## Technologies Used
@@ -16,4 +17,7 @@
 - MongoDB, Atlas
 - Bootstrap
 - Trello, draw.io
+
+## Resources
 - ChatGPT
+- Background image source: https://static.clubs.nfl.com/image/private/t_new_photo_album/jets/qhsgjtl4udb0brklchxg.jpg
