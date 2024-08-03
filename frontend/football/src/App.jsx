@@ -31,7 +31,7 @@ function App() {
   })
   const [currentPortfolio, setCurrentPortfolio] = useState({}) //portfolio object
   const [currentWatchlist, setCurrentWatchlist] = useState({}) //watchlist object
-  const [idsInPorfolio, setIdsInPortfolio] = useState([]) //array of strings
+  const [idsInPortfolio, setIdsInPortfolio] = useState([]) //array of strings
   const [idsInWatchlist, setIdsInWatchlist] = useState([]) //array of strings
   const [playersInPorfolio, setPlayersInPortfolio] = useState([]) //array of player objects
   const [playersInWatchlist, setPlayersInWatchlist] = useState([]) //array of player objects
@@ -189,7 +189,7 @@ function App() {
     console.log('3. Current watchlist', currentWatchlist)
     console.log('4. Players in portfolio', playersInPorfolio)
     console.log('5. Players in watchlist', playersInWatchlist)
-    console.log('6. Portfolio player ids', idsInPorfolio)
+    console.log('6. Portfolio player ids', idsInPortfolio)
     console.log('7. Watchlist player ids', idsInWatchlist)
     console.log('8. Search results', searchResults)
     console.log('9. Selected player', selectedPlayer)
@@ -213,7 +213,7 @@ const showPlayer = (targetPlayer, espnID) => {
     </div>
 
     <div className='app'> 
-      <DataContext.Provider value={{currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, idsInPorfolio, setIdsInPortfolio, idsInWatchlist, setIdsInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players}}>
+      <DataContext.Provider value={{currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, idsInPortfolio, setIdsInPortfolio, idsInWatchlist, setIdsInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players}}>
         {/* <Login /> */}
       
       <Routes>

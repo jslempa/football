@@ -8,15 +8,16 @@ import RemoveFromWatchlistButton from './RemoveFromWatchListButton'
 
 const PlayerDetail = () => {
 
-    const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, idsInPorfolio, setIdsInPortfolio, idsInWatchlist, setIdsInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players} = useContext(DataContext)
+    const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, idsInPortfolio, setIdsInPortfolio, idsInWatchlist, setIdsInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players} = useContext(DataContext)
 
     const endpoint = window.location.pathname
 
-    const [targetPlayer, setTargetPlayer] = useState({})
+    //const [targetPlayer, setTargetPlayer] = useState({})
 
     console.log('Selected player', selectedPlayer)
     console.log('Selected player id', selectedPlayer._id)
     console.log('Watchlist player ids', idsInWatchlist)
+    console.log('Portfolio player ids', idsInPortfolio)
 
     // useEffect(() => {
     //     getTargetPlayer()
@@ -37,15 +38,17 @@ const PlayerDetail = () => {
 
       console.log('Selected player inside renderButtons', selectedPlayer)
       console.log('ids in watchlist inside renderButtons', idsInWatchlist)
+      console.log('ids in portfolio inside renderButtons', idsInPortfolio)
 
-      if (idsInWatchlist.includes(selectedPlayer._id)) {
+
+      if (idsInWatchlist && idsInWatchlist.includes(selectedPlayer._id)) {
         return (
           <div className='player-detail-button-container'>
             <BuyButton />
             <RemoveFromWatchlistButton />
           </div>
         )
-      } else if (idsInPorfolio.includes(selectedPlayer._id)) {
+      } else if (idsInPortfolio && idsInPortfolio.includes(selectedPlayer._id)) {
         return (
           <div className='player-detail-button-container'>
           <BuyButton />
