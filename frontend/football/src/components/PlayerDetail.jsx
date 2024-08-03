@@ -12,16 +12,16 @@ const PlayerDetail = () => {
 
     const endpoint = window.location.pathname
 
-    //const [targetPlayer, setTargetPlayer] = useState({})
+    const [targetPlayer, setTargetPlayer] = useState({})
 
-    console.log('Selected player', selectedPlayer)
     console.log('Selected player id', selectedPlayer._id)
+    console.log('Target player id', targetPlayer._id)
     console.log('Watchlist player ids', idsInWatchlist)
     console.log('Portfolio player ids', idsInPortfolio)
 
-    // useEffect(() => {
-    //     getTargetPlayer()
-    // }, [])
+    useEffect(() => {
+        getTargetPlayer()
+    }, [])
    
     const getTargetPlayer = async () => {
       try {
@@ -36,30 +36,30 @@ const PlayerDetail = () => {
 
     const renderButtons = () => {
 
-      console.log('Selected player inside renderButtons', selectedPlayer)
+      console.log('Target player inside renderButtons', targetPlayer)
       console.log('ids in watchlist inside renderButtons', idsInWatchlist)
       console.log('ids in portfolio inside renderButtons', idsInPortfolio)
 
 
-      if (idsInWatchlist && idsInWatchlist.includes(selectedPlayer._id)) {
+      if (idsInWatchlist && idsInWatchlist.includes(targetPlayer._id)) {
         return (
           <div className='player-detail-button-container'>
-            <BuyButton />
-            <RemoveFromWatchlistButton />
+            <BuyButton player={targetPlayer} />
+            <RemoveFromWatchlistButton player={targetPlayer} />
           </div>
         )
-      } else if (idsInPortfolio && idsInPortfolio.includes(selectedPlayer._id)) {
+      } else if (idsInPortfolio && idsInPortfolio.includes(targetPlayer._id)) {
         return (
           <div className='player-detail-button-container'>
-          <BuyButton />
-          <SellButton />
+          <BuyButton player={targetPlayer} />
+          <SellButton player={targetPlayer} />
         </div>
         )
       } else {
         return (
           <div className='player-detail-button-container'>
-          <BuyButton />
-          <AddToWatchlistButton />
+          <BuyButton player={targetPlayer} />
+          <AddToWatchlistButton player={targetPlayer} />
         </div>
         )
       }
@@ -67,12 +67,12 @@ const PlayerDetail = () => {
 
     return (
         <div className='player-detail'>
-            <img src={selectedPlayer.image} alt={selectedPlayer.name}/>
+            <img src={targetPlayer.image} alt={targetPlayer.name}/>
             <div className='player-detail-info'>
-              <h2>{selectedPlayer.name}</h2>
-              <h4>{selectedPlayer.position}</h4>
-              <h4>{selectedPlayer.team}</h4>
-              <h4>Price: ${selectedPlayer.sharePrice}</h4>
+              <h2>{targetPlayer.name}</h2>
+              <h4>{targetPlayer.position}</h4>
+              <h4>{targetPlayer.team}</h4>
+              <h4>Price: ${targetPlayer.sharePrice}</h4>
             </div>
             <div className='player-detail-button-container'>
               {renderButtons()}

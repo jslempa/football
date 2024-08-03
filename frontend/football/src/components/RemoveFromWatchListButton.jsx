@@ -5,31 +5,20 @@ import Button from 'react-bootstrap/Button'
 
 const RemoveFromWatchlistButton = (props) => {
 
-    // console.log('remove watchlist props', props)
+    console.log('remove watchlist props', props)
 
     const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, idsInPortfolio, setIdsInPortfolio, idsInWatchlist, setIdsInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players} = useContext(DataContext)
 
-    // console.log('current watchlist', currentWatchlist)
-
     const removeFromWatchlist = async () => {
         try {
-
             const updatedPlayers = currentWatchlist[0].players.filter(current => current !== props.player._id)
-
-            // console.log(updatedPlayers)
-            // console.log('players after', updatedPlayers)
-    
             const updatedWatchlist = {
                 ...currentWatchlist[0],
                 players: updatedPlayers
             }  
-
-            const res = await axios.put(`http://localhost:3001/watchlists/${currentWatchlist[0]._id}`, updatedWatchlist)
-    
+            const res = await axios.put(`http://localhost:3001/watchlists/${currentWatchlist[0]._id}`, updatedWatchlist)    
             console.log('Watchlist updated:', res.data)
-
-        } catch (error) {
-            
+        } catch (error) {            
             console.error('Error updating watchlist:', error)
         }
         window.location.reload()
