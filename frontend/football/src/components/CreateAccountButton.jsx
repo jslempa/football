@@ -1,3 +1,4 @@
+import axios from 'axios'
 import DataContext from '../DataContext'
 import { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -5,11 +6,55 @@ import Button from 'react-bootstrap/Button'
 
 const CreateAccountButton = () => {
 
-    const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, idsInPortfolio, setIdsInPortfolio, idsInWatchlist, setIdsInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players} = useContext(DataContext)
+    const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, idsInPortfolio, setIdsInPortfolio, idsInWatchlist, setIdsInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players, setPlayers, users, setUsers, portfolios, setPortfolios, watchlists, setWatchlists, trades, setTrades} = useContext(DataContext)
 
-    const createAccount = () => {
-        console.log('Account created')
-    }
+    const createAccount = async (e) => {
+
+        let newUserID = ''
+        
+        //creating new user
+        const newUser = {
+            username: 'cbratton',
+            password: '123456',
+            email: 'www.creedthoughts.gov',
+            image: 'https://i.imgur.com/wMhWxZM.png',
+            isLoggedIn: false,
+            balance: 0 
+        }
+        try {
+            const res = await axios.post('http://localhost:3001/users', newUser)
+            console.log('Response:', res.data)
+            newUserID = res.data.user._id
+            console.log(newUserID)
+        } catch (error) {
+            console.error('Error creating user', error)
+        }
+
+        //creating new portfolio
+        const newPortfolio = {
+            user: newUserID,
+            players: [],
+            value: 0
+        }
+        try {
+            const res = await axios.post('http://localhost:3001/portfolios', newPortfolio)
+            console.log('Response:', res.data)
+        } catch (error) {
+            console.error('Error creating portfolio', error)
+        }
+
+        //creating new watchlist
+        const newWatchlist = {
+            user: newUserID,
+            players: []
+        }
+        try {
+            const res = await axios.post('http://localhost:3001/watchlists', newWatchlist)
+            console.log('Response:', res.data)
+        } catch (error) {
+            console.error('Error creating watchlist', error)
+        }
+      }
 
     return (
         
