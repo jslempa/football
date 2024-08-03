@@ -52,12 +52,10 @@ function App() {
   const [testPortfolioID, setTestPortfolioID] = useState('')
   const [testWatchlistID, setTestWatchlistID] = useState('')
 
-  // works!
   useEffect(() => {
-    console.log('current user on page load', currentUser)
+    //console.log('current user on page load', currentUser)
     getCurrentPortfolio()
     getCurrentWatchlist()
-
     getUsers()    
     getPlayers()
     getPortfolios()
@@ -103,18 +101,12 @@ function App() {
   }
 
   const filterPlayers = () => {
-    //console.log('current portfolio', currentPortfolio)
-    //console.log('current watchlist', currentWatchlist)
-    //console.log('filter, all players', players)
     if (currentPortfolio.length > 0) {
       let inPortfolio = players.filter(player => currentPortfolio[0].players.includes(player._id))
-      //console.log('filter portfolio test', inPortfolio)
       setPlayersInPortfolio(inPortfolio)      
     }
     if (currentWatchlist.length > 0) {
-       // watchlist filter works
-      let inWatchlist = players.filter(player => currentWatchlist[0].players.includes(player._id))
-      //console.log('filter watchlist test', inWatchlist)    
+      let inWatchlist = players.filter(player => currentWatchlist[0].players.includes(player._id)) 
       setPlayersInWatchlist(inWatchlist)
     }
   }
@@ -129,17 +121,13 @@ function App() {
     }
   }
 
-  // Works!!!
   const getCurrentPortfolio = async () => {
     try {
       let userID = currentUser._id
       const res = await axios.get(`http://localhost:3001/portfolios/user/${userID}`) 
-      //console.log('current porfolio data on page load', res.data)
       let portfolioData = res.data
-      // console.log('Portfolio', portfolioData)
-      // console.log('Current user', currentUser)
-      setIdsInPortfolio(portfolioData.players) //player id strings not player objs
-      setCurrentPortfolio(portfolioData) // this line ?
+      setIdsInPortfolio(portfolioData.players)
+      setCurrentPortfolio(portfolioData)
     } catch (error) {
       console.error('Error getting portfolios:', error)
     }
@@ -155,17 +143,13 @@ function App() {
     }
   }
 
-  // Works!!!
+
   const getCurrentWatchlist = async () => {
     try {
       let userID = currentUser._id
-      // console.log('UserID watchlist', userID)
       const res = await axios.get(`http://localhost:3001/watchlists/user/${userID}`) 
-      // console.log('current watchlist data on page load', res.data)
-      let watchlistData = res.data
-      // console.log('LOOK AT ME Watchlist player ids', watchlistData[0].players)
-      // console.log('Current user', currentUser)
-      setIdsInWatchlist(watchlistData[0].players) //player id strings not player objs  // COME BACK HERE IF WATCHLIST DOESN'T WORK
+      let watchlistData = res.data   
+      setIdsInWatchlist(watchlistData[0].players) 
       setCurrentWatchlist(watchlistData)
     } catch (error) {
       console.error('Error getting watchlists:', error)
@@ -200,22 +184,16 @@ function App() {
     console.log('9. Selected player', selectedPlayer)
  }
 
-// moved this into context from these routes: home, portfolio, playerlist
 const showPlayer = (targetPlayer, espnID) => {
   setSelectedPlayer(targetPlayer)
   navigate(`/players/${espnID}`)
 }
 
-
-
   return (
   <div> 
-    <div>  
-
-    <Button onClick={checkState}>Check state</Button>       
-
-    </div>
-
+    {/* <div>  
+      <Button onClick={checkState}>Check state</Button>    
+    </div> */}
     <div className='app'> 
       <DataContext.Provider value={{currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, idsInPortfolio, setIdsInPortfolio, idsInWatchlist, setIdsInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players, setPlayers, users, setUsers, portfolios, setPortfolios, watchlists, setWatchlists, trades, setTrades, testAccountID, setTestAccountID, testPortfolioID, setTestPortfolioID, testWatchlistID, setTestWatchlistID}}>
       <Routes>

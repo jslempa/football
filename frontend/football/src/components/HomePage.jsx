@@ -19,6 +19,7 @@ const HomePage = () => {
     }, [])
 
     return (
+
         <div className='home'>
             <SearchBar />
             {/* <h1>Hello {props.user[0].username}!</h1>   */}
@@ -27,6 +28,7 @@ const HomePage = () => {
             {/* <Carousel />  */}
             {/* <Nav /> */}
         </div>
+        
     )
 }
 

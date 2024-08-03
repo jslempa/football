@@ -1,11 +1,11 @@
 # Football Stock Exchange
 
 
-## Component Hierarchy Diagram
-![component hierarchy diagram](FootballCHD2.drawio.png)
-
 ## Entity Relationship Diagram
 ![entity relationship diagram](FootballERD.drawio.png)
+
+## Component Hierarchy Diagram
+![component hierarchy diagram](FootballCHD2.drawio.png)
 
 ## Wireframes
 ![wireframes](Capstone_wireframes.png)

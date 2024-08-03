@@ -26,6 +26,7 @@ const PlayerList = () => {
       }, [])  
 
     return (
+
         <div className='player-list'>
             {
                 searchResults.length > 0 ? (
@@ -42,11 +43,11 @@ const PlayerList = () => {
                             </div>                  
                         </div>
                     ))
-                  ) : <h3>No players match search</h3>
-     
+                ) : <h3>No players match search</h3>     
             }        
         </div>
     )
+    
 }
 
 export default PlayerList

@@ -10,9 +10,9 @@ const DeleteAccountButton = () => {
 
     const deleteAccount = async () => {
 
-        console.log('test user:', testAccountID)
-        console.log('test portfolio:', testPortfolioID)
-        console.log('test watchlist:', testWatchlistID)
+        // console.log('test user:', testAccountID)
+        // console.log('test portfolio:', testPortfolioID)
+        // console.log('test watchlist:', testWatchlistID)
         
         //deleting user
         try {

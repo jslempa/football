@@ -14,10 +14,10 @@ const PlayerDetail = () => {
 
     const [targetPlayer, setTargetPlayer] = useState({})
 
-    console.log('Selected player id', selectedPlayer._id)
-    console.log('Target player id', targetPlayer._id)
-    console.log('Watchlist player ids', idsInWatchlist)
-    console.log('Portfolio player ids', idsInPortfolio)
+    // console.log('Selected player id', selectedPlayer._id)
+    // console.log('Target player id', targetPlayer._id)
+    // console.log('Watchlist player ids', idsInWatchlist)
+    // console.log('Portfolio player ids', idsInPortfolio)
 
     useEffect(() => {
         getTargetPlayer()
@@ -35,7 +35,6 @@ const PlayerDetail = () => {
       try {
         const res = await axios.get(`http://localhost:3001${endpoint}`) 
         let playerData = res.data
-        console.log('playerData', playerData)
         setTargetPlayer(playerData)
       } catch (error) {
         console.error('Error getting player:', error)
@@ -44,9 +43,9 @@ const PlayerDetail = () => {
 
     const renderButtons = () => {
 
-      console.log('Target player inside renderButtons', targetPlayer)
-      console.log('ids in watchlist inside renderButtons', idsInWatchlist)
-      console.log('ids in portfolio inside renderButtons', idsInPortfolio)
+      // console.log('Target player inside renderButtons', targetPlayer)
+      // console.log('ids in watchlist inside renderButtons', idsInWatchlist)
+      // console.log('ids in portfolio inside renderButtons', idsInPortfolio)
 
 
       if (idsInWatchlist && idsInWatchlist.includes(targetPlayer._id)) {
@@ -74,6 +73,7 @@ const PlayerDetail = () => {
     }
 
     return (
+
         <div className='player-detail'>
             <div className='player-detail-img'>
                 <img src={targetPlayer.image} alt={targetPlayer.name}/>
@@ -88,6 +88,7 @@ const PlayerDetail = () => {
               {renderButtons()}
             </div>
         </div>    
+
     )
 }
 

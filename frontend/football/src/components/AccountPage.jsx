@@ -10,8 +10,6 @@ import { useState, useEffect, useContext } from 'react'
 const AccountPage = () => {
 
   const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, idsInPortfolio, setIdsInPortfolio, idsInWatchlist, setIdsInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players, setPlayers, users, setUsers, portfolios, setPortfolios, watchlists, setWatchlists, trades, setTrades, testAccountID, setTestAccountID} = useContext(DataContext)
-
-  //console.log('test account id', testAccountID)
   
   useEffect(() => {
     if (window.location.pathname === '/') {
@@ -27,12 +25,14 @@ const AccountPage = () => {
     //view trade/transaction history?
 
     return (
-        <div className='account'>   
-         
+
+        <div className='account'>            
             <div className='account-content'>
                 <img src={currentUser.image} alt='profile' />
-                <h2>{currentUser.username}</h2>
-                <h4>Current balance: ${currentUser.balance}</h4>
+                <div className='account-data'>
+                    <h2>{currentUser.username}</h2>
+                    <h4>Current balance: ${currentUser.balance}</h4>
+                </div>
                 <div>
                     <DepositButton />
                     <WithdrawButton />
@@ -41,11 +41,10 @@ const AccountPage = () => {
                     <DeleteAccountButton />
                     <SwitchUserButton />
                 </div>
-            </div>
-      
+            </div>      
         </div>
-      )
-      
+        
+      )      
 }
 
 export default AccountPage
