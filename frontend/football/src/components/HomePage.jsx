@@ -7,6 +7,21 @@ const HomePage = () => {
 
     const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, idsInPortfolio, setIdsInPortfolio, idsInWatchlist, setIdsInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer} = useContext(DataContext)
 
+    console.log(window.location.pathname)
+
+    useEffect(() => {
+        if (window.location.pathname === '/') {
+            console.log('home')
+            document.body.style.backgroundImage = 'url(https://static.clubs.nfl.com/image/private/t_new_photo_album/jets/qhsgjtl4udb0brklchxg.jpg)'
+            document.body.style.backgroundSize = 'cover'
+            document.body.style.backgroundPosition = '60% center'
+        } else {
+            console.log('not home')
+            document.body.style.backgroundImage = ''
+            document.body.style.backgroundColor = '#04A246'
+        }
+    }, [])
+
     return (
         <div className='home'>
             <SearchBar />

@@ -5,11 +5,11 @@
   text-align: center;
 }
 
-body {
+/* body {
   background-image: url('https://static.clubs.nfl.com/image/private/t_new_photo_album/jets/qhsgjtl4udb0brklchxg.jpg');
   background-size: cover;
   background-position: 60% center;
-}
+} */
 
 h1, h2, h3, h4, h5 {
   color: #F5FFF9;
@@ -32,6 +32,10 @@ nav {
   border: 1px solid #F5FFF9;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: 1000; 
+}
+
+.account {
+  min-height: fit-content;
 }
 
 .player-list {
