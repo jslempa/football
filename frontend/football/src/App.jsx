@@ -35,7 +35,7 @@ function App() {
   const [idsInWatchlist, setIdsInWatchlist] = useState([]) //array of strings
   const [playersInPorfolio, setPlayersInPortfolio] = useState([]) //array of player objects
   const [playersInWatchlist, setPlayersInWatchlist] = useState([]) //array of player objects
-
+  
   // all data
   const [users, setUsers] = useState([])
   const [players, setPlayers] = useState([])
@@ -46,6 +46,11 @@ function App() {
   // search data, context
   const [searchResults, setSearchResults] = useState([]) //array of objects
   const [selectedPlayer, setSelectedPlayer] = useState({}) //player object
+
+  // testing
+  const [testAccountID, setTestAccountID] = useState('')
+  const [testPortfolioID, setTestPortfolioID] = useState('')
+  const [testWatchlistID, setTestWatchlistID] = useState('')
 
   // works!
   useEffect(() => {
@@ -212,7 +217,7 @@ const showPlayer = (targetPlayer, espnID) => {
     </div>
 
     <div className='app'> 
-      <DataContext.Provider value={{currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, idsInPortfolio, setIdsInPortfolio, idsInWatchlist, setIdsInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players, setPlayers, users, setUsers, portfolios, setPortfolios, watchlists, setWatchlists, trades, setTrades}}>
+      <DataContext.Provider value={{currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, idsInPortfolio, setIdsInPortfolio, idsInWatchlist, setIdsInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players, setPlayers, users, setUsers, portfolios, setPortfolios, watchlists, setWatchlists, trades, setTrades, testAccountID, setTestAccountID, testPortfolioID, setTestPortfolioID, testWatchlistID, setTestWatchlistID}}>
       <Routes>
         <Route path='/' element={ <HomePage />}/> 
         <Route path='/portfolio' element={ <PortfolioPage />}/>

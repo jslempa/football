@@ -6,11 +6,13 @@ import Button from 'react-bootstrap/Button'
 
 const CreateAccountButton = () => {
 
-    const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, idsInPortfolio, setIdsInPortfolio, idsInWatchlist, setIdsInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players, setPlayers, users, setUsers, portfolios, setPortfolios, watchlists, setWatchlists, trades, setTrades} = useContext(DataContext)
+    const {currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, idsInPortfolio, setIdsInPortfolio, idsInWatchlist, setIdsInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players, setPlayers, users, setUsers, portfolios, setPortfolios, watchlists, setWatchlists, trades, setTrades, testAccountID, setTestAccountID, testPortfolioID, setTestPortfolioID, testWatchlistID, setTestWatchlistID} = useContext(DataContext)
 
-    const createAccount = async (e) => {
+    const createAccount = async () => {
 
         let newUserID = ''
+        let newPortfolioID = ''
+        let newWatchlistID = ''
         
         //creating new user
         const newUser = {
@@ -25,7 +27,7 @@ const CreateAccountButton = () => {
             const res = await axios.post('http://localhost:3001/users', newUser)
             console.log('Response:', res.data)
             newUserID = res.data.user._id
-            console.log(newUserID)
+            setTestAccountID(newUserID)
         } catch (error) {
             console.error('Error creating user', error)
         }
@@ -39,6 +41,8 @@ const CreateAccountButton = () => {
         try {
             const res = await axios.post('http://localhost:3001/portfolios', newPortfolio)
             console.log('Response:', res.data)
+            newPortfolioID = res.data.portfolio._id
+            setTestPortfolioID(newPortfolioID)
         } catch (error) {
             console.error('Error creating portfolio', error)
         }
@@ -51,6 +55,8 @@ const CreateAccountButton = () => {
         try {
             const res = await axios.post('http://localhost:3001/watchlists', newWatchlist)
             console.log('Response:', res.data)
+            newWatchlistID = res.data.watchlist._id
+            setTestWatchlistID(newWatchlistID)
         } catch (error) {
             console.error('Error creating watchlist', error)
         }
