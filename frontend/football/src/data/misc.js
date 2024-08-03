@@ -200,3 +200,17 @@
       {/* <button onClick={getIndividualPlayersFromAPI}>Get from API and log stats</button> */}
 
       {/* <button onClick={putStatsintoDB}>Upload stats</button> */}
+
+     // <Button onClick={swiftify}>Swiftify</Button>
+
+    //   const swiftify = async () => {
+    //     try {
+    //         //const updatedPlayer = [...currentWatchlist[0].players, props.player._id]  
+    //         const res = await axios.put(`http://localhost:3001/players/15847`, {
+    //             image: 'https://i.imgur.com/FL0RpJH.png'
+    //         })  
+    //         console.log('Player updated:', res.data)
+    //     } catch (error) {
+    //         console.error('Error updating player:', error)
+    //     }
+    //   } 

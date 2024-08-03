@@ -12,6 +12,10 @@
 } */
 
 h1, h2, h3, h4, h5 {
+  color: #181018;
+}
+
+a {
   color: #F5FFF9;
 }
 
@@ -39,25 +43,33 @@ nav {
 }
 
 .player-list {
-  background-color: #181018;
+  background-color: #04A246;
+  width: 300px;
   padding: 15px;
   margin: 15px;
 }
 
-.player-list-card {
-  background-color: #04A246;
-  border: 2px solid #F5FFF9;
-  border-radius: 5%;
+.player-list-card, .player-detail {
+  background-color: #F5FFF9;
+  border: 2px solid #181018;
+  border-radius: 10px 10px;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.player-detail {
-  background-color: #04A246;
-  border: 2px solid #F5FFF9;
-  border-radius: 5%;
+.player-detail-img {
+  margin: 10px;
 }
 
 .player-detail-button-container {
   padding: 10px;
+}
+
+.mb-3 {
+  background-color: #181018;;
+  border: 10px solid #181018;
+  border-radius: 10px 10px;
 }
 
 /* Color palettes */
