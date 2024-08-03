@@ -179,9 +179,9 @@ function App() {
 
   // 9 main things are loading! (portfolio tbd) 
   const checkState = () => {
-    // console.log('Users', users)
-    // console.log('Portfolios', portfolios)
-    // console.log('Watchlists', watchlists)
+    console.log('Users', users)
+    console.log('Portfolios', portfolios)
+    console.log('Watchlists', watchlists)
     // console.log('Trades', trades)
     // console.log('Players', players)
     console.log('1. Current user', currentUser)
@@ -212,9 +212,7 @@ const showPlayer = (targetPlayer, espnID) => {
     </div>
 
     <div className='app'> 
-      <DataContext.Provider value={{currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, idsInPortfolio, setIdsInPortfolio, idsInWatchlist, setIdsInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players}}>
-        {/* <Login /> */}
-      
+      <DataContext.Provider value={{currentUser, setCurrentUser, currentPortfolio, setCurrentPortfolio, currentWatchlist, setCurrentWatchlist, playersInPorfolio, setPlayersInPortfolio, playersInWatchlist, setPlayersInWatchlist, idsInPortfolio, setIdsInPortfolio, idsInWatchlist, setIdsInWatchlist, searchResults, setSearchResults, selectedPlayer, setSelectedPlayer, showPlayer, players, users, watchlists, portfolios}}>
       <Routes>
         <Route path='/' element={ <HomePage />}/> 
         <Route path='/portfolio' element={ <PortfolioPage />}/>

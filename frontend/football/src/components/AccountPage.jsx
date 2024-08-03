@@ -1,6 +1,8 @@
 import axios from 'axios'
 import DepositButton from './DepositButton'
 import WithdrawButton from './WithdrawButton'
+import CreateAccountButton from './CreateAccountButton'
+import DeleteAccountButton from './DeleteAccountButton'
 import SwitchUserButton from './SwitchUserButton'
 import DataContext from '../DataContext'
 import { useState, useEffect, useContext } from 'react'
@@ -26,12 +28,17 @@ const AccountPage = () => {
         <div className='account'>   
          
             <div className='account-content'>
-              <img src={currentUser.image} alt='profile' />
-              <h2>{currentUser.username}</h2>
-              <h4>Current balance: ${currentUser.balance}</h4>
-              <DepositButton />
-              <WithdrawButton />
-              <SwitchUserButton />
+                <img src={currentUser.image} alt='profile' />
+                <h2>{currentUser.username}</h2>
+                <h4>Current balance: ${currentUser.balance}</h4>
+                <div>
+                    <DepositButton />
+                    <WithdrawButton />
+                    <hr/>
+                    <CreateAccountButton />
+                    <DeleteAccountButton />
+                    <SwitchUserButton />
+                </div>
             </div>
       
         </div>
