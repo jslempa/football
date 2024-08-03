@@ -17,7 +17,7 @@ const PortfolioList = () => {
             {
                 playersInPorfolio.length > 0 ? (                
                     playersInPorfolio.map((player) => (
-                        <div className='player-list-card' key={player._id} onClick={()=>navigate(`/players/${player.espnID}`)}>
+                        <div className='player-list-card' key={player._id} onClick={()=>showPlayer(player, player.espnID)}>
                             <div className='player-list-img'>
                                 <img src={player.image} alt={player.name}/>  
                             </div>

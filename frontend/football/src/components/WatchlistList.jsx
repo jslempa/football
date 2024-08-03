@@ -8,8 +8,6 @@ const WatchlistList = () => {
 
     console.log('Watchlist list', playersInWatchlist)
 
-    // change classNames?
-
     return (
         
         <div className='player-list'>
@@ -17,7 +15,7 @@ const WatchlistList = () => {
             {
                 playersInWatchlist.length > 0 ? (                
                     playersInWatchlist.map((player) => (
-                        <div className='player-list-card' key={player._id} onClick={()=>navigate(`/players/${player.espnID}`)}>
+                        <div className='player-list-card' key={player._id} onClick={()=>showPlayer(player, player.espnID)}>
                             <div className='player-list-img'>
                                 <img src={player.image} alt={player.name}/>  
                             </div>
